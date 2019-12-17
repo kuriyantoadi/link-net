@@ -48,7 +48,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
+          <a class="nav-link">Selamat Datang Teknisi Coaxial</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -61,13 +61,10 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-title">Menu</li>
-            <li class="nav-item">
-              <a class="nav-link" href="node-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Data Node ID</a>
-            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="fo-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+                <i class="nav-icon icon-pencil"></i> Tampil Coaxial</a>
             </li>
           </ul>
         </nav>
@@ -98,16 +95,117 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
 
-<!-- akhir fiber optik -->
+<!-- akhir coaxial -->
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
+                  <div class="card-header">Input Form Teknisi Coaxial</div>
                   <div class="card-body">
 
           <!--awal -->
-          
+          <form action="tambah-fo.php" method="post">
+          <div class="col-md-10">
+            <table class="table table-borderless">
+                <tr>
+                  <td>Node ID</td>
+                  <td colspan="2">
+                      <input class="form-control" type="text"  name="regional">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Node Description</td>
+                  <td colspan="2">
+                      <input class="form-control" type="text"  name="hub_name">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Regional</td>
+                  <td colspan="2">
+                      <input class="form-control" type="text"  name="node_id">
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>Hub Name </td>
+                  <td colspan="2">
+                      <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Optical Light @TX</td>
+                  <td>
+                      <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>@RX</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Receiver No</td>
+                  <td>
+                      <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>@Loss*</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Transmitter No</td>
+                  <td>
+                      <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>%</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Signal @Transmitter Low</td>
+                  <td>
+                      <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>DL*</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                <tr>
+                  <td>CMTS No.</td>
+                  <td>
+                      <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>Ds*</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                  <td>Us*</td>
+                  <td>
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                </tr>
+                <tr>
+                  <td>PIC</td>
+                  <td colspan="2">
+                    <input class="form-control" type="text" name="titik_ko">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button class="btn btn-primary px-4" type="submit" >Simpan</button>
+                  </td>
+                </tr>
+
+
+              </table>
+            </div>
+          </div>
           <!-- akhir -->
 
 

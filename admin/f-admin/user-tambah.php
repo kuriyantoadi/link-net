@@ -132,6 +132,8 @@
                                 <option value="admin">Admin</option>
                                 <option value="tek-fo">Teknisi Fiber Optik</option>
                                 <option value="tek-coaxial">Teknisi Coaxial</option>
+                                <option value="tek-hub">Teknisi Hub</option>
+                                <option value="pimpinan">Pimpinan</option>
                               </select>
                             </div>
                           </td>

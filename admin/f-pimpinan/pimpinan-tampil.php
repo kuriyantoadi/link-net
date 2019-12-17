@@ -35,7 +35,6 @@
     </script>
   </head>
 
-<!-- menu awal -->
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -48,7 +47,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
+          <a class="nav-link">Selamat Datang Pimpinan</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -62,12 +61,8 @@
           <ul class="nav">
             <li class="nav-title">Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="node-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Data Node ID</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="fo-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+              <a class="nav-link" href="pimpinan-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
           </ul>
         </nav>
@@ -98,18 +93,60 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
 
-<!-- akhir fiber optik -->
+
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
+                  <div class="card-header">Rekap Laporan</div>
                   <div class="card-body">
+                  <table class="table table-hover">
+                    <tr>
+                			<th>No</th>
+                			<th>Node ID</th>
+                			<th>Node Deskription</th>
+                      <th>Hub Name</th>
+                			<th>Optical RX</th>
+                      <th>Optical DC</th>
+                		</tr>
+                    <?php
+                    include '../koneksi.php';
+                    $no = 1;
+                    $data = mysqli_query($koneksi,"select * from t_lap");
+                    while($d = mysqli_fetch_array($data)){
+                      ?>
+                      <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $d['node_id']; ?></td>
+                        <td><?php echo $d['node_des']; ?></td>
+                        <td><?php echo $d['hub_name']; ?></td>
+                        <td><?php echo $d['optical_rx']; ?></td>
+                        <td><?php echo $d['optical_dc']; ?></td>
+<!--
+                        <td>
+                          <a type="button" class="btn btn-success btn-sm" href="hub-pimpinan-view.php?node_id=<?php echo $d['node_id']; ?>">Lihat Data</a>
+                        </td>
+-->
+                      </tr>
+                      <?php
+                    }
+                    ?>
 
-          <!--awal -->
-          
-          <!-- akhir -->
+                    </table>
+                  </div>
+                </div>
+                    <!-- akhir -->
 
+
+
+                    <!-- /.row-->
+
+                </div>
+              </div>
+              <!-- /.col-->
+            </div>
+            <!-- /.row-->
+<!-- akhir -->
 
 
                     <!-- /.row-->

@@ -48,7 +48,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
+          <a class="nav-link">Selamat Datang Teknisi Coaxial</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -61,13 +61,18 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-title">Menu</li>
+
             <li class="nav-item">
-              <a class="nav-link" href="node-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Data Node ID</a>
+              <a class="nav-link" href="hub-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="fo-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+              <a class="nav-link" href="hub-coaxial-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Coaxial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hub-pimpinan-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
           </ul>
         </nav>
@@ -98,26 +103,15 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
 
-<!-- akhir fiber optik -->
-<!-- awal -->
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
-                  <div class="card-body">
-
-          <!--awal -->
-          
-          <!-- akhir -->
 
 
 
-                    <!-- /.row-->
 
-                </div>
-              </div>
+
+          </div>
+        </div>
               <!-- /.col-->
-            </div>
+  </div>
             <!-- /.row-->
 <!-- akhir -->
 

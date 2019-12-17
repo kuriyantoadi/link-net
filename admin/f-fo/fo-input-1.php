@@ -107,7 +107,74 @@
                   <div class="card-body">
 
           <!--awal -->
-          
+          <form action="fo-tambah.php" method="post">
+          <div class="col-md-5">
+            <table class="table table-borderless">
+                <tr>
+                  <td>Node ID</td>
+                  <td>
+                      <input class="form-control" type="text"  name="node_id">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Node Deskription</td>
+                  <td>
+                      <input class="form-control" type="text"  name="node_des">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Regional</td>
+                  <td>
+                      <input class="form-control" type="text"  name="regional">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hub Name</td>
+                  <td>
+                      <input class="form-control" type="text" name="hub_name">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rack ODF</td>
+                  <td>
+                      <input class="form-control" type="text" name="rack">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Link 1</td>
+                  <td>
+                      <input class="form-control" type="text" name="link_1">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Link 2</td>
+                  <td>
+                      <input class="form-control" type="text" name="link_2">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Upload File</td>
+                  <td>
+                      <input class="form-control" type="text" name="upload_file">
+                  </td>
+                </tr>
+                <tr>
+                  <td>PIC</td>
+                  <td>
+                      <input class="form-control" type="text" name="pic">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button class="btn btn-primary px-4" type="submit" >Simpan</button>
+                  </td>
+                </tr>
+
+
+              </table>
+            </div>
+          </div>
           <!-- akhir -->
 
 

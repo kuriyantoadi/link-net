@@ -35,7 +35,6 @@
     </script>
   </head>
 
-<!-- menu awal -->
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -61,6 +60,7 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-title">Menu</li>
+
             <li class="nav-item">
               <a class="nav-link" href="node-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Node ID</a>
@@ -98,18 +98,70 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
 
-<!-- akhir fiber optik -->
+
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
+                  <div class="card-header">Data Node ID</div>
                   <div class="card-body">
 
           <!--awal -->
-          
+          <form action="cek_login.php" method="post">
+          <div class="col-md-12">
+            <a type="button" class="btn btn-primary btn-sm" href="node-input.php">Input Node Baru</a>
+            <br><br>
+            <table class="table table-hover">
+              <tr>
+          			<th>No</th>
+                <th>Node ID</th>
+          			<th>Node Deskription</th>
+          			<th>Regional</th>
+          			<th>Hub Name</th>
+                <th>Titik Koordinat</th>
+                <th>Edit</th>
+                <th>Hapus</th>
+
+          		</tr>
+              <?php
+              include '../koneksi.php';
+              $no = 1;
+              $data = mysqli_query($koneksi,"select * from node");
+              while($d = mysqli_fetch_array($data)){
+                ?>
+                <tr>
+                  <td><?php echo $no++; ?></td>
+                  <td><?php echo $d['node_id']; ?></td>
+                  <td><?php echo $d['node_des']; ?></td>
+                  <td><?php echo $d['regional']; ?></td>
+                  <td><?php echo $d['hub_name']; ?></td>
+                  <td><?php echo $d['titik_ko']; ?></td>
+                  <td>
+                    <a type="button" class="btn btn-success btn-sm" href="node-edit.php?regional=<?php echo $d['regional']; ?>">Edit</a>
+                  </td>
+                  <td>
+                    <a type="button" class="btn btn-danger btn-sm" href="node-hapus.php?regional=<?php echo $d['regional']; ?>">Hapus</a>
+                  </td>
+                </tr>
+                <?php
+              }
+              ?>
+
+              </table>
+            </div>
+          </div>
           <!-- akhir -->
 
+
+
+                    <!-- /.row-->
+
+                </div>
+              </div>
+              <!-- /.col-->
+            </div>
+            <!-- /.row-->
+<!-- akhir -->
 
 
                     <!-- /.row-->

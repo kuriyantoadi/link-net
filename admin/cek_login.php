@@ -45,6 +45,20 @@ if($cek > 0){
 		// alihkan ke halaman dashboard pegawai
 		header("location:f-coaxial/index.php");
 
+}else if($data['level']=="tek-hub"){
+		// buat session login dan username
+		$_SESSION['username'] = $username;
+		$_SESSION['level'] = "tek-hub";
+		// alihkan ke halaman dashboard pegawai
+		header("location:f-hub/index.php");
+
+	}else if($data['level']=="pimpinan"){
+			// buat session login dan username
+			$_SESSION['username'] = $username;
+			$_SESSION['level'] = "pimpinan";
+			// alihkan ke halaman dashboard pegawai
+			header("location:f-pimpinan/index.php");
+
 	// cek jika user login sebagai pengurus
 	}else if($data['level']=="pengurus"){
 		// buat session login dan username

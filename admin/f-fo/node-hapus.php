@@ -3,13 +3,13 @@
 include '../koneksi.php';
 
 // menangkap data id yang di kirim dari url
-$node_id = $_GET['node_id'];
+$regional = $_GET['regional'];
 
 
 // menghapus data dari database
-mysqli_query($koneksi,"delete from t_fo where node_id='$node_id' ");
+mysqli_query($koneksi,"delete from node where regional='$regional' ");
 
 // mengalihkan halaman kembali ke index.php
-header("location:fo-tampil.php");
+header("location:node-tampil.php");
 
 ?>

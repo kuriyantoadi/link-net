@@ -48,7 +48,7 @@
 
         <ul class="nav navbar-nav d-md-down-none">
           <li class="nav-item px-3">
-            <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
+            <a class="nav-link">Selamat Datang Teknisi Coaxial</a>
           </li>
           <li class="nav-item px-3">
             <a class="nav-link" href="../logout.php">Keluar</a>
@@ -63,12 +63,8 @@
               <li class="nav-title">Menu</li>
 
               <li class="nav-item">
-                <a class="nav-link" href="node-tampil.php">
-                  <i class="nav-icon icon-pencil"></i> Data Node ID</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="fo-tampil.php">
-                  <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+                <a class="nav-link" href="coa-tampil.php">
+                  <i class="nav-icon icon-pencil"></i> Tampil Coaxial</a>
               </li>
             </ul>
           </nav>
@@ -103,73 +99,121 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header">Edit Registrasi Jaringan</div>
+          <div class="card-header">Edit User</div>
           <div class="card-body">
           <?php
           	include '../koneksi.php';
           	$node_id = $_GET['node_id'];
-          	$data = mysqli_query($koneksi,"select * from t_fo where node_id='$node_id'");
+          	$data = mysqli_query($koneksi,"select * from t_coaxial where node_id='$node_id'");
           	while($d = mysqli_fetch_array($data)){
       		?>
 
           <!--awal -->
-          <form action="fo-update.php" method="post">
-          <div class="col-md-5">
+          <form action="coa-update.php" method="post">
+          <div class="col-md-12">
             <table class="table table-borderless">
-                <tr>
-                  <td>Node ID</td>
-                  <td>
-                      <input class="form-control" type="text" name="node_id" value="<?php echo $d['node_id']; ?>" readonly>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Node Deskription</td>
-                  <td>
-                    <input class="form-control" type="text" name="node_des" value="<?php echo $d['node_des']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Regional</td>
-                  <td>
-                    <input class="form-control" type="text" name="regional" value="<?php echo $d['regional']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Hub Name</td>
-                  <td>
-                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['node_des']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Rack</td>
-                  <td>
-                    <input class="form-control" type="text" name="rack" value="<?php echo $d['rack']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 1</td>
-                  <td>
-                    <input class="form-control" type="text" name="link_1" value="<?php echo $d['link_1']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 2</td>
-                  <td>
-                    <input class="form-control" type="text" name="link_2" value="<?php echo $d['link_2']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>PIC</td>
-                  <td>
-                    <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>">
-                  </td>
-                </tr>
               <tr>
-                  <td></td>
-                  <td>
-                    <button class="btn btn-primary px-4" type="submit">Kirim</button>
-                  </td>
-                </tr>
+                <td>Node ID</td>
+                <td colspan="2">
+                    <input class="form-control" type="text"  name="node_id" value="<?php echo $d['node_id']; ?>" readonly>
+                </td>
+              </tr>
+              <tr>
+                <td>Node Description</td>
+                <td colspan="2">
+                    <input class="form-control" type="text"  name="node_des" value="<?php echo $d['node_des']; ?>" readonly>
+                </td>
+              </tr>
+              <tr>
+                <td>Regional</td>
+                <td colspan="2">
+                    <input class="form-control" type="text"  name="Regional" value="<?php echo $d['regional']; ?>" readonly>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Hub Name </td>
+                <td colspan="2">
+                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['hub_name']; ?>" readonly>
+                </td>
+              </tr>
+              <tr>
+                <td>Optical Input @RX</td>
+                <td>
+                    <input class="form-control" type="text" name="optical_rx" value="<?php echo $d['optical_rx']; ?>" >
+                </td>
+                <td>AC</td>
+                <td>
+                  <input class="form-control" type="text" name="optical_ac" value="<?php echo $d['optical_ac']; ?>" >
+                </td>
+                <td>DC</td>
+                <td>
+                  <input class="form-control" type="text" name="optical_dc" value="<?php echo $d['optical_dc']; ?>" >
+                </td>
+              </tr>
+              <tr>
+                <td>Signal Input Low</td>
+                <td>
+                    <input class="form-control" type="text" name="signal_input_low" value="<?php echo $d['signal_input_low']; ?>" >
+                </td>
+                <td>High</td>
+                <td>
+                  <input class="form-control" type="text" name="signal_input_high" value="<?php echo $d['signal_input_high']; ?>" >
+                </td>
+              </tr>
+              <tr>
+                <td>Signal Output Low</td>
+                <td>
+                    <input class="form-control" type="text" name="signal_output_low" value="<?php echo $d['signal_output_low']; ?>" >
+                </td>
+                <td>High</td>
+                <td>
+                  <input class="form-control" type="text" name="signal_output_high" value="<?php echo $d['signal_output_high']; ?>" >
+                </td>
+                <td>Rev</td>
+                <td>
+                  <input class="form-control" type="text" name="signal_output_rev" value="<?php echo $d['signal_output_rev']; ?>" >
+                </td>
+              </tr>
+              <tr>
+                <td>Docsis DP*</td>
+                <td>
+                    <input class="form-control" type="text" name="docsis_dp" value="<?php echo $d['docsis_dp']; ?>" >
+                </td>
+                <td>UP</td>
+                <td>
+                  <input class="form-control" type="text" name="docsis_up" value="<?php echo $d['docsis_up']; ?>" >
+                </td>
+                <td>DS*</td>
+                <td>
+                  <input class="form-control" type="text" name="docsis_ds" value="<?php echo $d['docsis_ds']; ?>" >
+                </td>
+              <tr>
+                <td>Quality MER</td>
+                <td>
+                    <input class="form-control" type="text" name="quality_mer" value="<?php echo $d['quality_mer']; ?>" >
+                </td>
+                <td>BER</td>
+                <td>
+                  <input class="form-control" type="text" name="quality_ber" value="<?php echo $d['quality_ber']; ?>" >
+                </td>
+                <td>C/N</td>
+                <td>
+                  <input class="form-control" type="text" name="quality_cn" value="<?php echo $d['quality_cn']; ?>" >
+                </td>
+              </tr>
+              <tr>
+                <td>PIC</td>
+                <td colspan="2">
+                  <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <button class="btn btn-primary px-4" type="submit" >Kirim ke Teknisi Hub</button>
+                </td>
+              </tr>
                 <?php
               }
               ?>

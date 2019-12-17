@@ -47,7 +47,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Admin</a>
+          <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -60,17 +60,18 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-title">Menu</li>
+
             <li class="nav-item">
-              <a class="nav-link" href="index.php">
-                <i class="nav-icon icon-drop"></i> Dashboard</a>
+              <a class="nav-link" href="hub-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="t_fo.php">
-                <i class="nav-icon icon-drop"></i> Input Form</a>
+              <a class="nav-link" href="hub-coaxial-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Coaxial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="menu-user.php">
-                <i class="nav-icon icon-drop"></i> Edit User</a>
+              <a class="nav-link" href="hub-pimpinan-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
           </ul>
         </nav>
@@ -101,53 +102,72 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
 
+
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Tambah User Baru</div>
+                  <div class="card-header">Menu Konfirmasi dari Teknisi Fiber Optik</div>
                   <div class="card-body">
+                  <table class="table table-hover">
+                    <tr>
+                			<th>No</th>
+                			<th>Node ID</th>
+                			<th>Node Deskription</th>
+                			<th>Regional</th>
+                			<th>Hub Name</th>
+                      <th>Rack</th>
+                      <th>Link 1</th>
+                      <th>Link 2</th>
+                      <th>PIC</th>
+                      <td>kondisi</td>
+                      <th>Edit</th>
+                		</tr>
+                    <?php
+                    include '../koneksi.php';
+                    $no = 1;
+                    $data = mysqli_query($koneksi,"select * from t_fo");
+                    while($d = mysqli_fetch_array($data)){
+                      ?>
+                      <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $d['node_id']; ?></td>
+                        <td><?php echo $d['node_des']; ?></td>
+                        <td><?php echo $d['regional']; ?></td>
+                        <td><?php echo $d['hub_name']; ?></td>
+                        <td><?php echo $d['rack']; ?></td>
+                        <td><?php echo $d['link_1']; ?></td>
+                        <td><?php echo $d['link_2']; ?></td>
+                        <td><?php echo $d['pic']; ?></td>
+                        <td><?php echo $d['kondisi']; ?></td>
 
-                  <!--awal -->
-                  <form action="tambah-aksi.php" method="post">
-                  <div class="col-md-5">
-                    <table class="table table-borderless">
-                        <tr>
-                          <td>Nama User</td>
-                          <td>
-                              <input class="form-control" type="text" name="username">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Password</td>
-                          <td>
-                              <input class="form-control" type="password" name="password">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Level</td>
-                          <td>
-                            <div class="form-group">
-                              <select class="form-control" id="sel1" name="level">
-                                <option value="admin">Admin</option>
-                                <option value="tek-fo">Teknisi Fiber Optik</option>
-                              </select>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td></td>
-                          <td>
-                            <button class="btn btn-primary px-4" type="submit">Kirim</button>
-                          </td>
-                        </tr>
+                        <td>
+                          <a type="button" class="btn btn-success btn-sm" href="hub-view.php?node_id=<?php echo $d['node_id']; ?>">Lihat Data</a>
+                        </td>
 
+                      </tr>
+                      <?php
+                    }
+                    ?>
 
-                      </table>
-                    </div>
+                    </table>
                   </div>
-                  <!-- akhir -->
-                  <!-- /.row-->
+                </div>
+                    <!-- akhir -->
+
+
+
+                    <!-- /.row-->
+
+                </div>
+              </div>
+              <!-- /.col-->
+            </div>
+            <!-- /.row-->
+<!-- akhir -->
+
+
+                    <!-- /.row-->
 
                 </div>
               </div>

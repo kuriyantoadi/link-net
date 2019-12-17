@@ -94,20 +94,129 @@
           </li>
         </ol>
 
+        <!-- akhir fiber optik -->
 
-        <div class="container-fluid">
-          <div class="animated fadeIn">
 
-<!-- akhir fiber optik -->
+
+
+<!-- daftar node -->
+<div class="container-fluid">
+  <div class="animated fadeIn">
+          <div class="card">
+            <div class="card-header">Data Node ID</div>
+            <div class="card-body">
+          <!--awal -->
+          <form action="fo-tambah.php" method="post">
+          <div class="col-md-12">
+            <table class="table table-hover">
+            <tr>
+            <th>Node ID</th>
+            <th>Node Deskription</th>
+            <th>Regional</th>
+            <th>Hub Name</th>
+            <th>Titik Koordinat</th>
+
+
+            </tr>
+            <?php
+            include '../koneksi.php';
+            $no = 1;
+            $data = mysqli_query($koneksi,"select * from node");
+            while($d = mysqli_fetch_array($data)){
+            ?>
+            <tr>
+              <td><?php echo $d['node_id']; ?></td>
+              <td><?php echo $d['node_des']; ?></td>
+              <td><?php echo $d['regional']; ?></td>
+              <td><?php echo $d['hub_name']; ?></td>
+              <td><?php echo $d['titik_ko']; ?></td>
+
+            <?php
+            }
+            ?>
+
+            </table>
+          </div>
+          </div>
+
+
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
+                  <div class="card-header">Mengisi Form Registrasi Jaringan Baru</div>
                   <div class="card-body">
 
           <!--awal -->
-          
+          <form action="fo-tambah.php" method="post">
+          <div class="col-md-5">
+            <table class="table table-borderless">
+                <tr>
+                  <td>Node ID</td>
+                  <td>
+                      <input class="form-control" type="text"  name="node_id" onkeyup="isi_otomatis()" id="node_id">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Node Deskription</td>
+                  <td>
+                      <input class="form-control" type="text"  name="node_des" id="node_des" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Regional</td>
+                  <td>
+                      <input class="form-control" type="text"  name="regional" id="regional" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hub Name</td>
+                  <td>
+                      <input class="form-control" type="text" name="hub_name" id="hub_name" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rack ODF</td>
+                  <td>
+                      <input class="form-control" type="text" name="rack">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Link 1</td>
+                  <td>
+                      <input class="form-control" type="text" name="link_1">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Link 2</td>
+                  <td>
+                      <input class="form-control" type="text" name="link_2">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Upload File</td>
+                  <td>
+                      <input class="form-control" type="text" name="upload_file">
+                  </td>
+                </tr>
+                <tr>
+                  <td>PIC</td>
+                  <td>
+                      <input class="form-control" type="text" name="pic">
+                      <input class="form-control" type="hidden" name="kondisi">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button class="btn btn-primary px-4" type="submit" >Kirim ke Tekniksi Hub</button>
+                  </td>
+                </tr>
+
+
+              </table>
+            </div>
+          </div>
           <!-- akhir -->
 
 
@@ -120,6 +229,27 @@
             </div>
             <!-- /.row-->
 <!-- akhir -->
+
+
+          <!-- ajax awal -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script type="text/javascript">
+              function isi_otomatis(){
+                  var node_id = $("#node_id").val();
+                  $.ajax({
+                      url: 'proses-ajax.php',
+                      data:"node_id="+node_id ,
+                  }).success(function (data) {
+                      var json = data,
+                      obj = JSON.parse(json);
+                      $('#node_des').val(obj.node_des);
+                      $('#regional').val(obj.regional);
+                      $('#hub_name').val(obj.hub_name);
+
+                  });
+              }
+          </script>
+          <!-- ajax akhir -->
 
 
 

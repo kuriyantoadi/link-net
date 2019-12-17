@@ -51,7 +51,7 @@
             <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
           </li>
           <li class="nav-item px-3">
-            <a class="nav-link" href="../logout.php">Keluar</a>
+            <a class="nav-link" href="logout.php">Keluar</a>
           </li>
         </ul>
 
@@ -65,10 +65,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="node-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Node ID</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="fo-tampil.php">
-                  <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
               </li>
             </ul>
           </nav>
@@ -103,23 +99,35 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header">Edit Registrasi Jaringan</div>
+          <div class="card-header">Edit User</div>
           <div class="card-body">
           <?php
           	include '../koneksi.php';
-          	$node_id = $_GET['node_id'];
-          	$data = mysqli_query($koneksi,"select * from t_fo where node_id='$node_id'");
+          	$regional = $_GET['regional'];
+          	$data = mysqli_query($koneksi,"select * from node where regional='$regional'");
           	while($d = mysqli_fetch_array($data)){
       		?>
 
           <!--awal -->
-          <form action="fo-update.php" method="post">
+          <form action="node-update.php" method="post">
           <div class="col-md-5">
             <table class="table table-borderless">
                 <tr>
+                  <td>Regional</td>
+                  <td>
+                      <input class="form-control" type="text" name="regional" value="<?php echo $d['regional']; ?>" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hub Name</td>
+                  <td>
+                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['hub_name']; ?>">
+                  </td>
+                </tr>
+                <tr>
                   <td>Node ID</td>
                   <td>
-                      <input class="form-control" type="text" name="node_id" value="<?php echo $d['node_id']; ?>" readonly>
+                    <input class="form-control" type="text" name="node_id" value="<?php echo $d['node_id']; ?>">
                   </td>
                 </tr>
                 <tr>
@@ -129,42 +137,13 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Regional</td>
+                  <td>Titik Koordinat</td>
                   <td>
-                    <input class="form-control" type="text" name="regional" value="<?php echo $d['regional']; ?>">
+                    <input class="form-control" type="text" name="titik_ko" value="<?php echo $d['titik_ko']; ?>">
                   </td>
                 </tr>
+
                 <tr>
-                  <td>Hub Name</td>
-                  <td>
-                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['node_des']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Rack</td>
-                  <td>
-                    <input class="form-control" type="text" name="rack" value="<?php echo $d['rack']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 1</td>
-                  <td>
-                    <input class="form-control" type="text" name="link_1" value="<?php echo $d['link_1']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 2</td>
-                  <td>
-                    <input class="form-control" type="text" name="link_2" value="<?php echo $d['link_2']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>PIC</td>
-                  <td>
-                    <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>">
-                  </td>
-                </tr>
-              <tr>
                   <td></td>
                   <td>
                     <button class="btn btn-primary px-4" type="submit">Kirim</button>

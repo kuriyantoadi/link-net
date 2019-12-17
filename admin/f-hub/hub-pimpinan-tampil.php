@@ -62,8 +62,16 @@
             <li class="nav-title">Menu</li>
 
             <li class="nav-item">
-              <a class="nav-link" href="fo-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Fiber Optik</a>
+              <a class="nav-link" href="hub-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hub-coaxial-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Coaxial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hub-pimpinan-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
           </ul>
         </nav>
@@ -99,54 +107,47 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
+                  <div class="card-header">Rekap Laporan untuk Pimpinan</div>
                   <div class="card-body">
+                  <table class="table table-hover">
+                    <tr>
+                			<th>No</th>
+                			<th>Node ID</th>
+                			<th>Node Deskription</th>
+                			<th>Regional</th>
+                      <th>Hub Name</th>
+                			<th>Optical RX</th>
+                      <th>Optical DC</th>
+                      <th>Kirim Laporan</th>
+                		</tr>
+                    <?php
+                    include '../koneksi.php';
+                    $no = 1;
+                    $data = mysqli_query($koneksi,"select * from t_coaxial");
+                    while($d = mysqli_fetch_array($data)){
+                      ?>
+                      <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $d['node_id']; ?></td>
+                        <td><?php echo $d['node_des']; ?></td>
+                        <td><?php echo $d['regional']; ?></td>
+                        <td><?php echo $d['hub_name']; ?></td>
+                        <td><?php echo $d['optical_rx']; ?></td>
+                        <td><?php echo $d['optical_dc']; ?></td>
 
-          <!--awal -->
-          <form action="cek_login.php" method="post">
-          <div class="col-md-12">
-            <a type="button" class="btn btn-primary btn-sm" href="index.php">Input Data</a>
-            <br><br>
-            <table class="table table-hover">
-              <tr>
-          			<th>No</th>
-          			<th>Regional</th>
-          			<th>Hub Name</th>
-          			<th>Node ID</th>
-          			<th>Node Deskription</th>
-                <th>Titik Koordinat</th>
-                <th>Edit</th>
-                <th>Hapus</th>
+                        <td>
+                          <a type="button" class="btn btn-success btn-sm" href="hub-pimpinan-view.php?node_id=<?php echo $d['node_id']; ?>">Lihat Data</a>
+                        </td>
 
-          		</tr>
-              <?php
-              include '../koneksi.php';
-              $no = 1;
-              $data = mysqli_query($koneksi,"select * from t_fo");
-              while($d = mysqli_fetch_array($data)){
-                ?>
-                <tr>
-                  <td><?php echo $no++; ?></td>
-                  <td><?php echo $d['regional']; ?></td>
-                  <td><?php echo $d['hub_name']; ?></td>
-                  <td><?php echo $d['node_id']; ?></td>
-                  <td><?php echo $d['node_des']; ?></td>
-                  <td><?php echo $d['titik_ko']; ?></td>
-                  <td>
-                    <a type="button" class="btn btn-success btn-sm" href="fo-edit.php?regional=<?php echo $d['regional']; ?>">Edit</a>
-                  </td>
-                  <td>
-                    <a type="button" class="btn btn-danger btn-sm" href="fo-hapus.php?regional=<?php echo $d['regional']; ?>">Hapus</a>
-                  </td>
-                </tr>
-                <?php
-              }
-              ?>
+                      </tr>
+                      <?php
+                    }
+                    ?>
 
-              </table>
-            </div>
-          </div>
-          <!-- akhir -->
+                    </table>
+                  </div>
+                </div>
+                    <!-- akhir -->
 
 
 

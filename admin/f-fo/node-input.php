@@ -103,11 +103,55 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
+                  <div class="card-header">Input Node ID</div>
                   <div class="card-body">
 
           <!--awal -->
-          
+          <form action="node-tambah.php" method="post">
+          <div class="col-md-5">
+            <table class="table table-borderless">
+                <tr>
+                  <td>Regional</td>
+                  <td>
+                      <input class="form-control" type="text"  name="regional">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hub Name</td>
+                  <td>
+                      <input class="form-control" type="text"  name="hub_name">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Node ID</td>
+                  <td>
+                      <input class="form-control" type="text"  name="node_id">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Node Description</td>
+                  <td>
+                      <input class="form-control" type="text" name="node_des">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Titik Koordinat</td>
+                  <td>
+                      <input class="form-control" type="text" name="titik_ko">
+                      <input class="form-control" type="hidden" name="setuju">
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button class="btn btn-primary px-4" type="submit" >Simpan</button>
+                  </td>
+                </tr>
+
+
+              </table>
+            </div>
+          </div>
           <!-- akhir -->
 
 
