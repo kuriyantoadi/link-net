@@ -107,37 +107,37 @@
                   <div class="card-body">
 
           <!--awal -->
-          <form action="node-tambah.php" method="post">
+          <form action="node-tambah.php" method="post" name="input" onSubmit="return validasi()">
           <div class="col-md-5">
             <table class="table table-borderless">
                 <tr>
                   <td>Regional</td>
                   <td>
-                      <input class="form-control" type="text"  name="regional">
+                      <input class="form-control" type="text"  name="regional" id="regional">
                   </td>
                 </tr>
                 <tr>
                   <td>Hub Name</td>
                   <td>
-                      <input class="form-control" type="text"  name="hub_name">
+                      <input class="form-control" type="text"  name="hub_name" id="hub_name">
                   </td>
                 </tr>
                 <tr>
                   <td>Node ID</td>
                   <td>
-                      <input class="form-control" type="text"  name="node_id">
+                      <input class="form-control" type="text"  name="node_id" id="node_id">
                   </td>
                 </tr>
                 <tr>
                   <td>Node Description</td>
                   <td>
-                      <input class="form-control" type="text" name="node_des">
+                      <input class="form-control" type="text" name="node_des" id="node_des">
                   </td>
                 </tr>
                 <tr>
                   <td>Titik Koordinat</td>
                   <td>
-                      <input class="form-control" type="text" name="titik_ko">
+                      <input class="form-control" type="text" name="titik_ko" id="titik_ko">
                       <input class="form-control" type="hidden" name="setuju">
                   </td>
                 </tr>
@@ -164,6 +164,38 @@
             </div>
             <!-- /.row-->
 <!-- akhir -->
+<!-- javascript -->
+      <script>
+
+      function validasi(){
+        var x = document.forms["input"]["regional"].value;
+        if (x == null || x == "") {
+          alert("Regional Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["hub_name"].value;
+        if (x == null || x == "") {
+          alert("Hub Name Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["node_id"].value;
+        if (x == null || x == "") {
+          alert("Node ID Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["node_des"].value;
+        if (x == null || x == "") {
+          alert("Node Description Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["titik_ko"].value;
+        if (x == null || x == "") {
+          alert("Titik Koordinat Tidak Boleh Kosong");
+          return false;
+        }
+      }
+      </script>
+
 
 
 

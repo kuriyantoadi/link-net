@@ -64,6 +64,7 @@
               <a class="nav-link" href="pimpinan-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
+          
           </ul>
         </nav>
       </div>
@@ -107,12 +108,16 @@
                 			<th>Node Deskription</th>
                       <th>Hub Name</th>
                 			<th>Optical RX</th>
-                      <th>Optical DC</th>
+                      <th>Optical Input Node</th>
+                      <th>Tanggal Laporan</th>
+                      <th>Jam Laporan</th>
+                      <th>Kondisi</th>
+                      <th>View</th>
                 		</tr>
                     <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $data = mysqli_query($koneksi,"select * from t_lap");
+                    $data = mysqli_query($koneksi,"select * from pimpinan");
                     while($d = mysqli_fetch_array($data)){
                       ?>
                       <tr>
@@ -120,8 +125,16 @@
                         <td><?php echo $d['node_id']; ?></td>
                         <td><?php echo $d['node_des']; ?></td>
                         <td><?php echo $d['hub_name']; ?></td>
-                        <td><?php echo $d['optical_rx']; ?></td>
-                        <td><?php echo $d['optical_dc']; ?></td>
+                        <td><?php echo $d['optical_light_rx']; ?></td>
+                        <td><?php echo $d['optical_input_node']; ?></td>
+                        <td><?php echo $d['tgl_lap']; ?></td>
+                        <td><?php echo $d['jam_lap']; ?></td>
+                        <td><?php echo $d['kondisi']; ?></td>
+
+                        <td>
+                          <a type="button" class="btn btn-success btn-sm" href="pimpinan-view.php?node_id=<?php echo $d['node_id']; ?>" >View</a>
+                        </td>
+
 <!--
                         <td>
                           <a type="button" class="btn btn-success btn-sm" href="hub-pimpinan-view.php?node_id=<?php echo $d['node_id']; ?>">Lihat Data</a>

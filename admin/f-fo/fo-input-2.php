@@ -33,56 +33,6 @@
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
     </script>
-
-    <style>
-        body {
-          font-family: 'Roboto', Arial, Sans-serif;
-          font-size: 15px;
-          font-weight: 400;
-        }
-        .container {
-            left: 50%;
-            position: absolute;
-            top: 7.5%;
-            transform: translate(-50%, -7.5%);
-        }
-        input[type=text] {
-            border: 2px solid #bdbdbd;
-            font-family: 'Roboto', Arial, Sans-serif;
-          font-size: 15px;
-          font-weight: 400;
-            padding: .5em .75em;
-            width: 300px;
-        }
-        input[type=text]:focus {
-            border: 2px solid #757575;
-          outline: none;
-        }
-        .autocomplete-suggestions {
-            border: 1px solid #999;
-            background: #FFF;
-            overflow: auto;
-        }
-        .autocomplete-suggestion {
-            padding: 2px 5px;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .autocomplete-selected {
-            background: #F0F0F0;
-        }
-        .autocomplete-suggestions strong {
-            font-weight: normal;
-            color: #3399FF;
-        }
-        .autocomplete-group {
-            padding: 2px 5px;
-        }
-        .autocomplete-group strong {
-            display: block;
-            border-bottom: 1px solid #000;
-        }
-    </style>
   </head>
 
 <!-- menu awal -->
@@ -152,17 +102,53 @@
 <!-- daftar node -->
 <div class="container-fluid">
   <div class="animated fadeIn">
+          <div class="card">
+            <div class="card-header">Data Node ID</div>
+            <div class="card-body">
+          <!--awal -->
+          <form action="fo-tambah.php" method="post">
+          <div class="col-md-12">
+            <table class="table table-hover">
+            <tr>
+            <th>Node ID</th>
+            <th>Node Deskription</th>
+            <th>Regional</th>
+            <th>Hub Name</th>
+            <th>Titik Koordinat</th>
+
+
+            </tr>
+            <?php
+            include '../koneksi.php';
+            $no = 1;
+            $data = mysqli_query($koneksi,"select * from node");
+            while($d = mysqli_fetch_array($data)){
+            ?>
+            <tr>
+              <td><?php echo $d['node_id']; ?></td>
+              <td><?php echo $d['node_des']; ?></td>
+              <td><?php echo $d['regional']; ?></td>
+              <td><?php echo $d['hub_name']; ?></td>
+              <td><?php echo $d['titik_ko']; ?></td>
+
+            <?php
+            }
+            ?>
+
+            </table>
+          </div>
+          </div>
 
 
 <!-- awal -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">Mengisi Form Registrasi Jaringan Baru</div>
-        <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">Mengisi Form Registrasi Jaringan Baru</div>
+                  <div class="card-body">
 
           <!--awal -->
-          <form action="fo-tambah.php" method="POST" name="input" onSubmit="return validasi()">
+          <form action="fo-tambah.php" method="post" onSubmit="validasi()">
           <div class="col-md-5">
             <table class="table table-borderless">
                 <tr>
@@ -218,7 +204,6 @@
                   <td></td>
                   <td>
                     <button class="btn btn-primary px-4" type="submit" value="Daftar">Kirim ke Tekniksi Hub</button>
-                  <!--  <input type="submit" name="submit" value="Kirim"></td> -->
                   </td>
                 </tr>
 
@@ -239,52 +224,8 @@
             <!-- /.row-->
 <!-- akhir -->
 
-          <script>
 
-          function validasi(){
-          	var x = document.forms["input"]["node_id"].value;
-          	if (x == null || x == "") {
-          		alert("Node ID Tidak Boleh Kosong");
-          		return false;
-          	}
-          	var x = document.forms["input"]["node_des"].value;
-          	if (x == null || x == "") {
-          		alert("Node ID Tidak Boleh Kosong");
-          		return false;
-          	}
-          	var x = document.forms["input"]["regional"].value;
-          	if (x == null || x == "") {
-          		alert("Regional Tidak Boleh Kosong");
-          		return false;
-          	}
-          	var x = document.forms["input"]["hub_name"].value;
-          	if (x == null || x == "") {
-          		alert("Hub Name Tidak Boleh Kosong");
-          		return false;
-          	}
-            var x = document.forms["input"]["rack"].value;
-          	if (x == null || x == "") {
-          		alert("Rack Tidak Boleh Kosong");
-          		return false;
-          	}
-            var x = document.forms["input"]["jarak_normal"].value;
-          	if (x == null || x == "") {
-          		alert("Jarak Normal Tidak Boleh Kosong");
-          		return false;
-          	}
-            var x = document.forms["input"]["upload_file"].value;
-          	if (x == null || x == "") {
-          		alert("Upload file Tidak Boleh Kosong");
-          		return false;
-          	}
-            var x = document.forms["input"]["pic"].value;
-            if (x == null || x == "") {
-              alert("PIC Tidak Boleh Kosong");
-              return false;
-            }
-          }
-          </script>
-
+          <!-- ajax awal -->
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
           <script type="text/javascript">
               function isi_otomatis(){
@@ -302,22 +243,33 @@
                   });
               }
           </script>
+          <!-- ajax akhir -->
 
-          <!-- Memanggil Autocomplete.js -->
+<script type="text/javascript">
+function validasi() {
+  var rack = document.getElementById("rack").value;
+  var jarak_normal = document.getElementById("jarak_normal").value;
+  var upload_file = document.getElementById("upload_file").value;
+  var pic = document.getElementById("pic").value;
+  if (rack!= "" && jarak_normal!="" && upload_file !="" && pic!="") {
+    return true;
+  }else{
+    alert('Anda harus mengisi data dengan lengkap !');
+  }
+}
 
-          <script type="text/javascript">
-              $(document).ready(function() {
+function validasi() {
+  var nama = document.getElementById("nama").value;
+  var email = document.getElementById("email").value;
+  var alamat = document.getElementById("alamat").value;
+  if (nama != "" && email!="" && alamat !="") {
+    return true;
+  }else{
+    alert('Anda harus mengisi data dengan lengkap !');
+  }
+}
+</script>
 
-                  // Selector input yang akan menampilkan autocomplete.
-                  $( "#node_id" ).autocomplete({
-                      serviceUrl: "auto-field/source.php",   // Kode php untuk prosesing data.
-                      dataType: "JSON",           // Tipe data JSON.
-                      onSelect: function (suggestion) {
-                          $( "#node_id" ).val("" + suggestion.node_id);
-                      }
-                  });
-              })
-          </script>
 
 
     <!-- CoreUI and necessary plugins-->
@@ -331,7 +283,5 @@
     <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="../node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="auto-field/jquery.autocomplete.min.js"></script>
-
   </body>
 </html>

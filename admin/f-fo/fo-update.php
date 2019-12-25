@@ -9,8 +9,7 @@ $node_des = $_POST['node_des'];
 $regional = $_POST['regional'];
 $hub_name = $_POST['hub_name'];
 $rack = $_POST['rack'];
-$link_1 = $_POST['link_1'];
-$link_2 = $_POST['link_2'];
+$jarak_normal = $_POST['jarak_normal'];
 $pic = $_POST['pic'];
 
 
@@ -22,8 +21,7 @@ mysqli_query($koneksi,"update t_fo set
               regional='$regional',
               hub_name='$hub_name',
               rack='$rack',
-              link_1='$link_1',
-              link_2='$link_2',
+              jarak_normal='$jarak_normal',
               pic='$pic'
               where node_id='$node_id'"
             );

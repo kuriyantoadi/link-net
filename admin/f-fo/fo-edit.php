@@ -113,55 +113,49 @@
       		?>
 
           <!--awal -->
-          <form action="fo-update.php" method="post">
+          <form action="fo-update.php" method="post" name="input" onSubmit="return validasi()">
           <div class="col-md-5">
             <table class="table table-borderless">
                 <tr>
                   <td>Node ID</td>
                   <td>
-                      <input class="form-control" type="text" name="node_id" value="<?php echo $d['node_id']; ?>" readonly>
+                      <input class="form-control" type="text" name="node_id" value="<?php echo $d['node_id']; ?>" id="node_id" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Node Deskription</td>
                   <td>
-                    <input class="form-control" type="text" name="node_des" value="<?php echo $d['node_des']; ?>">
+                    <input class="form-control" type="text" name="node_des" value="<?php echo $d['node_des']; ?>" id="node_des" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Regional</td>
                   <td>
-                    <input class="form-control" type="text" name="regional" value="<?php echo $d['regional']; ?>">
+                    <input class="form-control" type="text" name="regional" value="<?php echo $d['regional']; ?>" id="regional" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Hub Name</td>
                   <td>
-                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['node_des']; ?>">
+                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['hub_name']; ?>" id="hub_name" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Rack</td>
                   <td>
-                    <input class="form-control" type="text" name="rack" value="<?php echo $d['rack']; ?>">
+                    <input class="form-control" type="text" name="rack" value="<?php echo $d['rack']; ?>" id="rack">
                   </td>
                 </tr>
                 <tr>
-                  <td>Link 1</td>
+                  <td>Jarak Normal</td>
                   <td>
-                    <input class="form-control" type="text" name="link_1" value="<?php echo $d['link_1']; ?>">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 2</td>
-                  <td>
-                    <input class="form-control" type="text" name="link_2" value="<?php echo $d['link_2']; ?>">
+                    <input class="form-control" type="text" name="jarak_normal" value="<?php echo $d['jarak_normal']; ?>" id="jarak_normal">
                   </td>
                 </tr>
                 <tr>
                   <td>PIC</td>
                   <td>
-                    <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>">
+                    <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" id="pic">
                   </td>
                 </tr>
               <tr>
@@ -191,7 +185,46 @@
       <!-- /.row-->
 <!-- akhir -->
 
+      <script>
 
+      function validasi(){
+        var x = document.forms["input"]["node_id"].value;
+        if (x == null || x == "") {
+          alert("Node ID Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["node_des"].value;
+        if (x == null || x == "") {
+          alert("Node description Harus Angka");
+          return false;
+        }
+        var x = document.forms["input"]["regional"].value;
+        if (x == null || x == "") {
+          alert("Regional Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["hub_name"].value;
+        if (x == null || x == "") {
+          alert("Hub Name Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["rack"].value;
+        if (x == null || x == "") {
+          alert("Rack Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["jarak_normal"].value;
+        if (x == null || x == "") {
+          alert("Jarak Normal Tidak Boleh Kosong");
+          return false;
+        }
+        var x = document.forms["input"]["pic"].value;
+        if (x == null || x == "") {
+          alert("PIC Tidak Boleh Kosong");
+          return false;
+        }
+      }
+      </script>
 
     <!-- CoreUI and necessary plugins-->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>

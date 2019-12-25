@@ -104,12 +104,12 @@
           <?php
           	include '../koneksi.php';
           	$node_id = $_GET['node_id'];
-          	$data = mysqli_query($koneksi,"select * from t_coaxial where node_id='$node_id'");
+          	$data = mysqli_query($koneksi,"select * from pimpinan where node_id='$node_id'");
           	while($d = mysqli_fetch_array($data)){
       		?>
 
           <!--awal -->
-          <form action="hub-pimpinan-update.php" method="post">
+          <form action="pimpinan-approve.php" method="post">
           <div class="col-md-8">
             <table class="table table-borderless">
               <tr>
@@ -125,33 +125,28 @@
                 </td>
               </tr>
               <tr>
-                <td>Regional</td>
-                <td colspan="2">
-                    <input class="form-control" type="text"  name="Regional" value="<?php echo $d['regional']; ?>" readonly>
-                </td>
-              </tr>
-              <tr>
                 <td>Hub Name </td>
                 <td colspan="2">
                     <input class="form-control" type="text" name="hub_name" value="<?php echo $d['hub_name']; ?>" readonly>
                 </td>
               </tr>
               <tr>
-                <td>Optical Input @RX</td>
+                <td>Optical RX</td>
                 <td>
-                    <input class="form-control" type="text" name="optical_rx" value="<?php echo $d['optical_rx']; ?>" readonly>
+                    <input class="form-control" type="text" name="optical_light_rx" value="<?php echo $d['optical_light_rx']; ?>" readonly>
                 </td>
               </tr>
               <tr>
-                <td>Optical DC</td>
+                <td>Optical Input Node</td>
                 <td>
-                    <input class="form-control" type="text" name="optical_dc" value="<?php echo $d['optical_rx']; ?>" readonly>
+                    <input class="form-control" type="text" name="optical_input_node" value="<?php echo $d['optical_input_node']; ?>" readonly>
                 </td>
               </tr>
               <tr>
                 <td></td>
                 <td>
-                  <button class="btn btn-primary px-4" type="submit" >Kirim ke Pimpinan</button>
+                  <button class="btn btn-primary px-4" type="submit" >Approve</button>
+                  <a type="button" class="btn btn-danger btn-px" href="pimpinan-reject.php?node_id=<?php echo $d['node_id']; ?>" >Reject</a>
                 </td>
               </tr>
                 <?php

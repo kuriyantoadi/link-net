@@ -48,7 +48,7 @@
 
         <ul class="nav navbar-nav d-md-down-none">
           <li class="nav-item px-3">
-            <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
+            <a class="nav-link">Selamat Datang Teknisi Hub</a>
           </li>
           <li class="nav-item px-3">
             <a class="nav-link" href="../logout.php">Keluar</a>
@@ -70,9 +70,15 @@
                 <a class="nav-link" href="hub-coaxial-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Coaxial</a>
               </li>
+              <!--
               <li class="nav-item">
                 <a class="nav-link" href="hub-pimpinan-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
+              </li>
+            -->
+              <li class="nav-item">
+                <a class="nav-link" href="hub-form-input.php">
+                  <i class="nav-icon icon-pencil"></i> Data Hub</a>
               </li>
             </ul>
           </nav>
@@ -151,15 +157,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Link 1</td>
+                  <td>Jarak Normal</td>
                   <td>
-                    <input class="form-control" type="text" name="" value="<?php echo $d['link_1']; ?>" readonly>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 2</td>
-                  <td>
-                    <input class="form-control" type="text" name="" value="<?php echo $d['link_2']; ?>" readonly>
+                    <input class="form-control" type="text" name="" value="<?php echo $d['jarak_normal']; ?>" readonly>
                   </td>
                 </tr>
                 <tr>

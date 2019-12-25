@@ -4,7 +4,10 @@ include '../koneksi.php';
 
 // menangkap data yang di kirim dari form
 $node_id = $_POST['node_id'];
-$optical_rx = $_POST['optical_rx'];
+$node_des = $_POST['node_des'];
+$regional = $_POST['regional'];
+$hub_name = $_POST['hub_name'];
+$optical_input_node = $_POST['optical_input_node'];
 $optical_ac = $_POST['optical_ac'];
 $optical_dc = $_POST['optical_dc'];
 $signal_input_low = $_POST['signal_input_low'];
@@ -24,7 +27,7 @@ $pic = $_POST['pic'];
 //mysqli_query($koneksi,"update user set username='$username', password='$password', level='$level' where id='$id'");
 
 mysqli_query($koneksi,"update t_coaxial set
-                      optical_rx='$optical_rx',
+                      optical_input_node='$optical_input_node',
                       optical_ac='$optical_ac',
                       optical_dc='$optical_dc',
                       signal_input_low='$signal_input_low',
@@ -39,8 +42,16 @@ mysqli_query($koneksi,"update t_coaxial set
                       quality_mer='$quality_mer',
                       quality_cn='$quality_cn',
                       pic='$pic',
-                      kondisi='Menunggu Konfirmasi' 
+                      kondisi='Menunggu Konfirmasi'
                       where node_id='$node_id'");
+
+mysqli_query($koneksi,"insert into t_hub
+              (node_id, node_des, regional, hub_name)
+              values(
+              '$node_id',
+              '$node_des',
+              '$regional',
+              '$hub_name')");
 
 
 //mysqli_query($koneksi,"update t_coaxial set optical_rx='$optical_rx' where node_id='$node_id'");

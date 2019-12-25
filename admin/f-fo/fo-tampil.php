@@ -114,13 +114,13 @@
             <table class="table table-hover">
               <tr>
           			<th>No</th>
+                <td>Tanggal Input</td>
           			<th>Node ID</th>
           			<th>Node Deskription</th>
           			<th>Regional</th>
           			<th>Hub Name</th>
                 <th>Rack</th>
-                <th>Link 1</th>
-                <th>Link 2</th>
+                <th>Jarak Normal</th>
                 <th>PIC</th>
                 <td>Kondisi</td>
                 <th>Edit</th>
@@ -134,20 +134,20 @@
                 ?>
                 <tr>
                   <td><?php echo $no++; ?></td>
+                  <td><?php echo $d['tgl']; ?></td>
                   <td><?php echo $d['node_id']; ?></td>
                   <td><?php echo $d['node_des']; ?></td>
                   <td><?php echo $d['regional']; ?></td>
                   <td><?php echo $d['hub_name']; ?></td>
                   <td><?php echo $d['rack']; ?></td>
-                  <td><?php echo $d['link_1']; ?></td>
-                  <td><?php echo $d['link_2']; ?></td>
+                  <td><?php echo $d['jarak_normal']; ?></td>
                   <td><?php echo $d['pic']; ?></td>
                   <td><?php echo $d['kondisi']; ?></td>
                   <td>
                     <a type="button" class="btn btn-success btn-sm" href="fo-edit.php?node_id=<?php echo $d['node_id']; ?>">Edit</a>
                   </td>
                   <td>
-                    <a type="button" class="btn btn-danger btn-sm" href="fo-hapus.php?node_id=<?php echo $d['node_id']; ?>">Hapus</a>
+                    <a type="button" class="btn btn-danger btn-sm" href="fo-hapus.php?node_id=<?php echo $d['node_id']; ?>" onclick="return confirm('Anda yakin menhapus data ini ?')" >Hapus</a>
                   </td>
                 </tr>
                 <?php

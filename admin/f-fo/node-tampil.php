@@ -140,21 +140,23 @@
                     <a type="button" class="btn btn-success btn-sm" href="node-edit.php?regional=<?php echo $d['regional']; ?>">Edit</a>
                   </td>
                   <td>
-                    <a type="button" class="btn btn-danger btn-sm" href="node-hapus.php?regional=<?php echo $d['regional']; ?>">Hapus</a>
+                    <a type="button" class="btn btn-danger btn-sm" href="node-hapus.php?regional=<?php echo $d['regional']; ?>" onclick="return confirm('Anda yakin menhapus data ini ?')">Hapus</a>
                   </td>
                 </tr>
                 <?php
               }
               ?>
 
-              </table>
+                  </table>
+                </div>
+              </div>
+
+                </div>
+              </div>
+              <!-- /.col-->
             </div>
-          </div>
-          <!-- akhir -->
+            <!-- /.row-->
 
-
-
-                    <!-- /.row-->
 
                 </div>
               </div>
@@ -163,15 +165,7 @@
             <!-- /.row-->
 <!-- akhir -->
 
-
-                    <!-- /.row-->
-
-                </div>
-              </div>
-              <!-- /.col-->
-            </div>
-            <!-- /.row-->
-<!-- akhir -->
+<!-- JavaScript hapus-->
 
 
 

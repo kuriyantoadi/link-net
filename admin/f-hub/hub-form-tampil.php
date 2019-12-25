@@ -35,7 +35,6 @@
     </script>
   </head>
 
-<!-- menu awal -->
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -48,7 +47,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Teknisi Coaxial</a>
+          <a class="nav-link">Selamat Datang Teknisi Hub</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -77,7 +76,7 @@
             </li>
           -->
             <li class="nav-item">
-              <a class="nav-link" href="hub-form-input.php">
+              <a class="nav-link" href="hub-form-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Hub</a>
             </li>
           </ul>
@@ -110,16 +109,66 @@
           <div class="animated fadeIn">
 
 
+<!-- awal -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">Data Teknisi Hub</div>
+                  <div class="card-body">
 
+          <!--awal -->
+          <form action="cek_login.php" method="post">
+          <div class="col-md-12">
+            <table class="table table-hover">
+              <tr>
+          			<th>No</th>
+                <th>Node ID</th>
+          			<th>Node Deskription</th>
+          			<th>Regional</th>
+          			<th>Hub Name</th>
+                <th>Tampil</th>
+                <th>Hapus</th>
 
+          		</tr>
+              <?php
+              include '../koneksi.php';
+              $no = 1;
+              $data = mysqli_query($koneksi,"select * from t_hub");
+              while($d = mysqli_fetch_array($data)){
+                ?>
+                <tr>
+                  <td><?php echo $no++; ?></td>
+                  <td><?php echo $d['node_id']; ?></td>
+                  <td><?php echo $d['node_des']; ?></td>
+                  <td><?php echo $d['regional']; ?></td>
+                  <td><?php echo $d['hub_name']; ?></td>
+                  <td>
+                    <a type="button" class="btn btn-success btn-sm" href="hub-form-view.php?node_id=<?php echo $d['node_id']; ?>" >Tampilkan</a>
+                  </td>
+                  <td>
+                    <a type="button" class="btn btn-danger btn-sm" href="hub-form-hapus.php?node_id=<?php echo $d['node_id']; ?>" onclick="return confirm('Anda yakin menhapus data ini ?')">Hapus</a>
+                  </td>
+                </tr>
+              <?php } ?>
+                  </table>
+                </div>
+              </div>
 
-
-          </div>
-        </div>
+                </div>
+              </div>
               <!-- /.col-->
-  </div>
+            </div>
+            <!-- /.row-->
+
+
+                </div>
+              </div>
+              <!-- /.col-->
+            </div>
             <!-- /.row-->
 <!-- akhir -->
+
+<!-- JavaScript hapus-->
 
 
 

@@ -48,7 +48,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Teknisi Coaxial</a>
+          <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -61,10 +61,13 @@
         <nav class="sidebar-nav">
           <ul class="nav">
             <li class="nav-title">Menu</li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="node-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Node ID</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="fo-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Coaxial</a>
+                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
             </li>
           </ul>
         </nav>
@@ -91,114 +94,116 @@
           </li>
         </ol>
 
+        <!-- akhir fiber optik -->
 
-        <div class="container-fluid">
-          <div class="animated fadeIn">
 
-<!-- akhir coaxial -->
+
+
+<!-- daftar node -->
+<div class="container-fluid">
+  <div class="animated fadeIn">
+          <div class="card">
+            <div class="card-header">Data Node ID</div>
+            <div class="card-body">
+          <!--awal -->
+          <div class="col-md-12">
+            <table class="table table-hover">
+            <tr>
+            <th>Node ID</th>
+            <th>Node Deskription</th>
+            <th>Regional</th>
+            <th>Hub Name</th>
+            <th>Titik Koordinat</th>
+
+
+            </tr>
+            <?php
+            include '../koneksi.php';
+            $no = 1;
+            $data = mysqli_query($koneksi,"select * from node");
+            while($d = mysqli_fetch_array($data)){
+            ?>
+            <tr>
+              <td><?php echo $d['node_id']; ?></td>
+              <td><?php echo $d['node_des']; ?></td>
+              <td><?php echo $d['regional']; ?></td>
+              <td><?php echo $d['hub_name']; ?></td>
+              <td><?php echo $d['titik_ko']; ?></td>
+
+            <?php
+            }
+            ?>
+
+            </table>
+          </div>
+          </div>
+
+
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Input Form Teknisi Coaxial</div>
+                  <div class="card-header">Mengisi Form Registrasi Jaringan Baru</div>
                   <div class="card-body">
 
           <!--awal -->
-          <form action="tambah-fo.php" method="post">
-          <div class="col-md-10">
+          <form action="fo-tambah.php" method="POST" name="input" onSubmit="return validasi()">
+          <div class="col-md-5">
             <table class="table table-borderless">
                 <tr>
                   <td>Node ID</td>
-                  <td colspan="2">
-                      <input class="form-control" type="text"  name="regional">
+                  <td>
+                      <input class="form-control" type="text"  name="node_id" onkeyup="isi_otomatis()" id="node_id">
                   </td>
                 </tr>
                 <tr>
-                  <td>Node Description</td>
-                  <td colspan="2">
-                      <input class="form-control" type="text"  name="hub_name">
+                  <td>Node Deskription</td>
+                  <td>
+                      <input class="form-control" type="text"  name="node_des" id="node_des" >
                   </td>
                 </tr>
                 <tr>
                   <td>Regional</td>
-                  <td colspan="2">
-                      <input class="form-control" type="text"  name="node_id">
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td>Hub Name </td>
-                  <td colspan="2">
-                      <input class="form-control" type="text" name="titik_ko">
+                  <td>
+                      <input class="form-control" type="text"  name="regional" id="regional" >
                   </td>
                 </tr>
                 <tr>
-                  <td>Optical Light @TX</td>
+                  <td>Hub Name</td>
                   <td>
-                      <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>@RX</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
+                      <input class="form-control" type="text" name="hub_name" id="hub_name" >
                   </td>
                 </tr>
                 <tr>
-                  <td>Receiver No</td>
+                  <td>Rack ODF</td>
                   <td>
-                      <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>@Loss*</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
+                      <input class="form-control" type="text" name="rack" id="rack">
                   </td>
                 </tr>
                 <tr>
-                  <td>Transmitter No</td>
+                  <td>Jarak Normal</td>
                   <td>
-                      <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>%</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
+                      <input class="form-control" type="text" name="jarak_normal" id="jarak_normal">
                   </td>
                 </tr>
                 <tr>
-                  <td>Signal @Transmitter Low</td>
+                  <td>Upload File</td>
                   <td>
-                      <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>High</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>DL*</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                <tr>
-                  <td>CMTS No.</td>
-                  <td>
-                      <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>Ds*</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
-                  </td>
-                  <td>Us*</td>
-                  <td>
-                    <input class="form-control" type="text" name="titik_ko">
+                      <input class="form-control" type="text" name="upload_file" id="upload_file">
                   </td>
                 </tr>
                 <tr>
                   <td>PIC</td>
-                  <td colspan="2">
-                    <input class="form-control" type="text" name="titik_ko">
+                  <td>
+                      <input class="form-control" type="text" name="pic" id="pic">
+                      <input class="form-control" type="hidden" name="kondisi">
                   </td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>
-                    <button class="btn btn-primary px-4" type="submit" >Simpan</button>
+                    <button class="btn btn-primary px-4" type="submit" value="Daftar">Kirim ke Tekniksi Hub</button>
+                  <!--  <input type="submit" name="submit" value="Kirim"></td> -->
                   </td>
                 </tr>
 
@@ -218,6 +223,70 @@
             </div>
             <!-- /.row-->
 <!-- akhir -->
+
+          <script>
+
+          function validasi(){
+          	var x = document.forms["input"]["node_id"].value;
+          	if (x == null || x == "") {
+          		alert("Node ID Tidak Boleh Kosong");
+          		return false;
+          	}
+          	var x = document.forms["input"]["node_des"].value;
+          	if (x == null || x == "") {
+          		alert("Node description Harus Angka");
+          		return false;
+          	}
+          	var x = document.forms["input"]["regional"].value;
+          	if (x == null || x == "") {
+          		alert("Regional Tidak Boleh Kosong");
+          		return false;
+          	}
+          	var x = document.forms["input"]["hub_name"].value;
+          	if (x == null || x == "") {
+          		alert("Hub Name Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["rack"].value;
+          	if (x == null || x == "") {
+          		alert("Rack Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["jarak_normal"].value;
+          	if (x == null || x == "") {
+          		alert("Jarak Normal Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["upload_file"].value;
+          	if (x == null || x == "") {
+          		alert("Upload file Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["pic"].value;
+            if (x == null || x == "") {
+              alert("PIC Tidak Boleh Kosong");
+              return false;
+            }
+          }
+          </script>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script type="text/javascript">
+              function isi_otomatis(){
+                  var node_id = $("#node_id").val();
+                  $.ajax({
+                      url: 'proses-ajax.php',
+                      data:"node_id="+node_id ,
+                  }).success(function (data) {
+                      var json = data,
+                      obj = JSON.parse(json);
+                      $('#node_des').val(obj.node_des);
+                      $('#regional').val(obj.regional);
+                      $('#hub_name').val(obj.hub_name);
+
+                  });
+              }
+          </script>
 
 
 

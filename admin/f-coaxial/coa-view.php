@@ -109,7 +109,7 @@
       		?>
 
           <!--awal -->
-          <form action="coa-update.php" method="post">
+          <form action="coa-update.php" method="post" name="input" onSubmit="return validasi()">
           <div class="col-md-12">
             <table class="table table-borderless">
               <tr>
@@ -127,7 +127,7 @@
               <tr>
                 <td>Regional</td>
                 <td colspan="2">
-                    <input class="form-control" type="text"  name="Regional" value="<?php echo $d['regional']; ?>" readonly>
+                    <input class="form-control" type="text"  name="regional" value="<?php echo $d['regional']; ?>" readonly>
                 </td>
               </tr>
 
@@ -138,74 +138,74 @@
                 </td>
               </tr>
               <tr>
-                <td>Optical Input @RX</td>
+                <td>Optical Input Node</td>
                 <td>
-                    <input class="form-control" type="text" name="optical_rx" value="<?php echo $d['optical_rx']; ?>" >
+                    <input class="form-control" type="text" name="optical_input_node" value="<?php echo $d['optical_input_node']; ?>" id="optical_input_node">
                 </td>
                 <td>AC</td>
                 <td>
-                  <input class="form-control" type="text" name="optical_ac" value="<?php echo $d['optical_ac']; ?>" >
+                  <input class="form-control" type="text" name="optical_ac" value="<?php echo $d['optical_ac']; ?>" id="optical_ac">
                 </td>
                 <td>DC</td>
                 <td>
-                  <input class="form-control" type="text" name="optical_dc" value="<?php echo $d['optical_dc']; ?>" >
+                  <input class="form-control" type="text" name="optical_dc" value="<?php echo $d['optical_dc']; ?>" id="optical_dc">
                 </td>
               </tr>
               <tr>
                 <td>Signal Input Low</td>
                 <td>
-                    <input class="form-control" type="text" name="signal_input_low" value="<?php echo $d['signal_input_low']; ?>" >
+                    <input class="form-control" type="text" name="signal_input_low" value="<?php echo $d['signal_input_low']; ?>" id="signal_input_low">
                 </td>
                 <td>High</td>
                 <td>
-                  <input class="form-control" type="text" name="signal_input_high" value="<?php echo $d['signal_input_high']; ?>" >
+                  <input class="form-control" type="text" name="signal_input_high" value="<?php echo $d['signal_input_high']; ?>" id="signal_input_high">
                 </td>
               </tr>
               <tr>
                 <td>Signal Output Low</td>
                 <td>
-                    <input class="form-control" type="text" name="signal_output_low" value="<?php echo $d['signal_output_low']; ?>" >
+                    <input class="form-control" type="text" name="signal_output_low" value="<?php echo $d['signal_output_low']; ?>" id="signal_output_low">
                 </td>
                 <td>High</td>
                 <td>
-                  <input class="form-control" type="text" name="signal_output_high" value="<?php echo $d['signal_output_high']; ?>" >
+                  <input class="form-control" type="text" name="signal_output_high" value="<?php echo $d['signal_output_high']; ?>" id="signal_output_high">
                 </td>
                 <td>Rev</td>
                 <td>
-                  <input class="form-control" type="text" name="signal_output_rev" value="<?php echo $d['signal_output_rev']; ?>" >
+                  <input class="form-control" type="text" name="signal_output_rev" value="<?php echo $d['signal_output_rev']; ?>" id="signal_output_rev">
                 </td>
               </tr>
               <tr>
                 <td>Docsis DP*</td>
                 <td>
-                    <input class="form-control" type="text" name="docsis_dp" value="<?php echo $d['docsis_dp']; ?>" >
+                    <input class="form-control" type="text" name="docsis_dp" value="<?php echo $d['docsis_dp']; ?>" id="docsis_dp">
                 </td>
                 <td>UP</td>
                 <td>
-                  <input class="form-control" type="text" name="docsis_up" value="<?php echo $d['docsis_up']; ?>" >
+                  <input class="form-control" type="text" name="docsis_up" value="<?php echo $d['docsis_up']; ?>" id="docsis_up">
                 </td>
                 <td>DS*</td>
                 <td>
-                  <input class="form-control" type="text" name="docsis_ds" value="<?php echo $d['docsis_ds']; ?>" >
+                  <input class="form-control" type="text" name="docsis_ds" value="<?php echo $d['docsis_ds']; ?>" id="docsis_ds">
                 </td>
               <tr>
                 <td>Quality MER</td>
                 <td>
-                    <input class="form-control" type="text" name="quality_mer" value="<?php echo $d['quality_mer']; ?>" >
+                    <input class="form-control" type="text" name="quality_mer" value="<?php echo $d['quality_mer']; ?>" id="quality_mer">
                 </td>
                 <td>BER</td>
                 <td>
-                  <input class="form-control" type="text" name="quality_ber" value="<?php echo $d['quality_ber']; ?>" >
+                  <input class="form-control" type="text" name="quality_ber" value="<?php echo $d['quality_ber']; ?>" id="quality_ber">
                 </td>
                 <td>C/N</td>
                 <td>
-                  <input class="form-control" type="text" name="quality_cn" value="<?php echo $d['quality_cn']; ?>" >
+                  <input class="form-control" type="text" name="quality_cn" value="<?php echo $d['quality_cn']; ?>" id="quality_cn">
                 </td>
               </tr>
               <tr>
                 <td>PIC</td>
                 <td colspan="2">
-                  <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" >
+                  <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" id="pic">
                 </td>
               </tr>
               <tr>
@@ -224,10 +224,7 @@
                     </div>
                     <!-- akhir -->
 
-
-
                     <!-- /.row-->
-
           </div>
         </div>
         <!-- /.col-->
@@ -237,7 +234,10 @@
 
 
 
+
+
     <!-- CoreUI and necessary plugins-->
+    <script src="cek-input.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

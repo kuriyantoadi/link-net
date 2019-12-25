@@ -35,6 +35,7 @@
     </script>
   </head>
 
+<!-- menu awal -->
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -108,60 +109,129 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
 
-
+<!-- akhir coaxial -->
 <!-- awal -->
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Form Testing Teknisi Coaxial</div>
+                  <div class="card-header">Input Form Teknisi Hub</div>
                   <div class="card-body">
-                  <table class="table table-hover">
-                    <tr>
-                			<th>No</th>
-                			<th>Node ID</th>
-                			<th>Node Deskription</th>
-                			<th>Regional</th>
-                			<th>Hub Name</th>
-                      <th>Kondisi</th>
-                      <th>Kerjakan</th>
-                		</tr>
-                    <?php
-                    include '../koneksi.php';
-                    $no = 1;
-                    $data = mysqli_query($koneksi,"select * from t_coaxial");
-                    while($d = mysqli_fetch_array($data)){
-                      ?>
-                      <tr>
-                        <td><?php echo $no++; ?></td>
-                        <td><?php echo $d['node_id']; ?></td>
-                        <td><?php echo $d['node_des']; ?></td>
-                        <td><?php echo $d['regional']; ?></td>
-                        <td><?php echo $d['hub_name']; ?></td>
-                        <td><?php echo $d['kondisi']; ?></td>
-                        <td>
-                          <a type="button" class="btn btn-success btn-sm" href="hub-coaxial-view.php?node_id=<?php echo $d['node_id']; ?>">Lihat Data</a>
-                        </td>
-
-                      </tr>
-                      <?php
-                    }
-                    ?>
-
-                    </table>
-                  </div>
-                </div>
-                    <!-- akhir -->
 
 
 
-                    <!-- /.row-->
+          <!--awal -->
+          <form action="hub-form-update.php" method="post" name="input" onSubmit="return validasi()">
+          <div class="col-md-10">
+            <table class="table table-borderless">
+              <?php
+                include '../koneksi.php';
+                $node_id = $_GET['node_id'];
+                $data = mysqli_query($koneksi,"select * from t_hub where node_id='$node_id'");
+                while($d = mysqli_fetch_array($data)) {
+              ?>
+                <tr>
+                  <td>Node ID</td>
+                  <td colspan="2">
+                      <input class="form-control" type="text"  name="node_id" id="node_id" value="<?php echo $d['node_id']; ?>" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Node Description</td>
+                  <td colspan="2">
+                      <input class="form-control" type="text"  name="node_des" id="node_des" value="<?php echo $d['node_des']; ?>" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Regional</td>
+                  <td colspan="2">
+                      <input class="form-control" type="text"  name="regional" id="regional" value="<?php echo $d['regional']; ?>" readonly>
+                  </td>
+                </tr>
 
-                </div>
-              </div>
-              <!-- /.col-->
+                <tr>
+                  <td>Hub Name </td>
+                  <td colspan="2">
+                      <input class="form-control" type="text" name="hub_name" id="hub_name" value="<?php echo $d['hub_name']; ?>" readonly>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Optical Light @TX</td>
+                  <td>
+                      <input class="form-control" type="text" name="optical_light_tx" id="optical_light_tx" value="<?php echo $d['optical_light_tx']; ?>" >
+                  </td>
+                  <td>@RX</td>
+                  <td>
+                    <input class="form-control" type="text" name="optical_light_rx" id="optical_light_rx" value="<?php echo $d['optical_light_rx']; ?>" >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Receiver No</td>
+                  <td>
+                      <input class="form-control" type="text" name="receiver_no" id="receiver_no" value="<?php echo $d['receiver_no']; ?>" >
+                  </td>
+                  <td>@Loss*</td>
+                  <td>
+                    <input class="form-control" type="text" name="receiver_loss" id="receiver_loss" value="<?php echo $d['receiver_loss']; ?>" >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Transmitter No</td>
+                  <td>
+                      <input class="form-control" type="text" name="transmitter_no" id="transmitter_no" value="<?php echo $d['transmitter_no']; ?>" >
+                  </td>
+                  <td>%</td>
+                  <td>
+                    <input class="form-control" type="text" name="transmitter_persen" id="transmitter_persen" value="<?php echo $d['transmitter_persen']; ?>" >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Signal @Transmitter Low</td>
+                  <td>
+                      <input class="form-control" type="text" name="signal_trans_low" id="signal_trans_low" value="<?php echo $d['signal_trans_low']; ?>" >
+                  </td>
+                  <td>High</td>
+                  <td>
+                    <input class="form-control" type="text" name="signal_trans_high" id="signal_trans_high" value="<?php echo $d['signal_trans_high']; ?>" >
+                  </td>
+                  <td>DL*</td>
+                  <td>
+                    <input class="form-control" type="text" name="signal_trans_dl" id="signal_trans_dl" value="<?php echo $d['signal_trans_dl']; ?>" >
+                  </td>
+                <tr>
+                  <td>CMTS No.</td>
+                  <td>
+                      <input class="form-control" type="text" name="cmts_no" id="cmts_no" value="<?php echo $d['cmts_no']; ?>" >
+                  </td>
+                  <td>Ds*</td>
+                  <td>
+                    <input class="form-control" type="text" name="cmts_ds" id="cmts_ds" value="<?php echo $d['cmts_ds']; ?>" >
+                  </td>
+                  <td>Us*</td>
+                  <td>
+                    <input class="form-control" type="text" name="cmts_us" id="cmts_us" value="<?php echo $d['cmts_us']; ?>" >
+                  </td>
+                </tr>
+                <tr>
+                  <td>PIC</td>
+                  <td colspan="2">
+                    <input class="form-control" type="text" name="pic" id="pic" value="<?php echo $d['pic']; ?>" >
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button class="btn btn-primary px-4" type="submit" >Simpan</button>
+                  </td>
+                </tr>
+                <?php
+                }
+                 ?>
+              </table>
+
             </div>
-            <!-- /.row-->
-<!-- akhir -->
+          </div>
+          <!-- akhir -->
+
 
 
                     <!-- /.row-->
@@ -176,6 +246,7 @@
 
 
     <!-- CoreUI and necessary plugins-->
+    <script src="cek-input.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

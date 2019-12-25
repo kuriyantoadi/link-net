@@ -48,7 +48,7 @@
 
         <ul class="nav navbar-nav d-md-down-none">
           <li class="nav-item px-3">
-            <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
+            <a class="nav-link">Selamat Datang Teknisi Hub</a>
           </li>
           <li class="nav-item px-3">
             <a class="nav-link" href="logout.php">Keluar</a>
