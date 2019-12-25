@@ -38,12 +38,13 @@ mysqli_query($koneksi,"update t_hub set
                       cmts_no='$cmts_no',
                       cmts_ds='$cmts_ds',
                       cmts_us='$cmts_us',
-                      pic='$pic'
+                      pic='$pic',
+                      kondisi='Sudah di Input'
                       where node_id='$node_id'");
 
 $data = mysqli_query($koneksi,"select * from t_coaxial");
 while($d = mysqli_fetch_array($data)){
-      $data_coaxial=($d['optical_input_node']);
+      $optical_input_node=($d['optical_input_node']);
 }
 
 mysqli_query($koneksi,"insert into pimpinan
@@ -52,10 +53,13 @@ mysqli_query($koneksi,"insert into pimpinan
               '$node_des',
               '$hub_name',
               '$optical_light_rx',
-              '$data_coaxial'
+              '$optical_input_node',
+              '',
+              '',
+              ''
               )");
 
 // mengalihkan halaman kembali ke index.php
-//header("location:hub-form-tampil.php");
+header("location:hub-form-tampil.php");
 
 ?>

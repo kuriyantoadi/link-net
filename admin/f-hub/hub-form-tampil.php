@@ -41,8 +41,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="../img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="../img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img src="../link-net.png" width="89" height="25">
       </a>
 
       <ul class="nav navbar-nav d-md-down-none">
@@ -75,6 +74,10 @@
                 <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
           -->
+          <li class="nav-item">
+            <a class="nav-link" href="../f-lap/index.php">
+              <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
+          </li>
             <li class="nav-item">
               <a class="nav-link" href="hub-form-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Hub</a>
@@ -126,6 +129,7 @@
           			<th>Node Deskription</th>
           			<th>Regional</th>
           			<th>Hub Name</th>
+                <th>Kondisi</th>
                 <th>Tampil</th>
                 <th>Hapus</th>
 
@@ -142,6 +146,8 @@
                   <td><?php echo $d['node_des']; ?></td>
                   <td><?php echo $d['regional']; ?></td>
                   <td><?php echo $d['hub_name']; ?></td>
+                  <td><?php echo $d['kondisi']; ?></td>
+
                   <td>
                     <a type="button" class="btn btn-success btn-sm" href="hub-form-view.php?node_id=<?php echo $d['node_id']; ?>" >Tampilkan</a>
                   </td>

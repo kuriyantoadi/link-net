@@ -33,6 +33,56 @@
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
     </script>
+
+    <style>
+        body {
+          font-family: 'Roboto', Arial, Sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+        }
+        .container {
+            left: 50%;
+            position: absolute;
+            top: 7.5%;
+            transform: translate(-50%, -7.5%);
+        }
+        input[type=text] {
+            border: 2px solid #bdbdbd;
+            font-family: 'Roboto', Arial, Sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+            padding: .5em .75em;
+            width: 300px;
+        }
+        input[type=text]:focus {
+            border: 2px solid #757575;
+          outline: none;
+        }
+        .autocomplete-suggestions {
+            border: 1px solid #999;
+            background: #FFF;
+            overflow: auto;
+        }
+        .autocomplete-suggestion {
+            padding: 2px 5px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .autocomplete-selected {
+            background: #F0F0F0;
+        }
+        .autocomplete-suggestions strong {
+            font-weight: normal;
+            color: #3399FF;
+        }
+        .autocomplete-group {
+            padding: 2px 5px;
+        }
+        .autocomplete-group strong {
+            display: block;
+            border-bottom: 1px solid #000;
+        }
+    </style>
   </head>
 
 <!-- menu awal -->
@@ -42,8 +92,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="../img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="../img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img src="../link-net.png" width="89" height="25">
       </a>
 
       <ul class="nav navbar-nav d-md-down-none">
@@ -94,80 +143,81 @@
           </li>
         </ol>
 
+        <!-- akhir fiber optik -->
 
-        <div class="container-fluid">
-          <div class="animated fadeIn">
 
-<!-- akhir fiber optik -->
+
+
+<!-- daftar node -->
+<div class="container-fluid">
+  <div class="animated fadeIn">
+
+
 <!-- awal -->
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">Input Form Teknisi Fiber Optik</div>
-                  <div class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Mengisi Form Registrasi Jaringan Baru</div>
+        <div class="card-body">
 
           <!--awal -->
-          <form action="fo-tambah.php" method="post">
+          <form action="fo-tambah.php" method="POST" name="input" onSubmit="return validasi()" enctype="multipart/form-data">
           <div class="col-md-5">
             <table class="table table-borderless">
                 <tr>
                   <td>Node ID</td>
                   <td>
-                      <input class="form-control" type="text"  name="node_id">
+                      <input class="form-control" type="text"  name="node_id" onkeyup="isi_otomatis()" id="node_id">
                   </td>
                 </tr>
                 <tr>
                   <td>Node Deskription</td>
                   <td>
-                      <input class="form-control" type="text"  name="node_des">
+                      <input class="form-control" type="text"  name="node_des" id="node_des" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Regional</td>
                   <td>
-                      <input class="form-control" type="text"  name="regional">
+                      <input class="form-control" type="text"  name="regional" id="regional" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Hub Name</td>
                   <td>
-                      <input class="form-control" type="text" name="hub_name">
+                      <input class="form-control" type="text" name="hub_name" id="hub_name" readonly>
                   </td>
                 </tr>
                 <tr>
                   <td>Rack ODF</td>
                   <td>
-                      <input class="form-control" type="text" name="rack">
+                      <input class="form-control" type="text" name="rack" id="rack">
                   </td>
                 </tr>
                 <tr>
-                  <td>Link 1</td>
+                  <td>Jarak Normal</td>
                   <td>
-                      <input class="form-control" type="text" name="link_1">
-                  </td>
-                </tr>
-                <tr>
-                  <td>Link 2</td>
-                  <td>
-                      <input class="form-control" type="text" name="link_2">
+                      <input class="form-control" type="text" name="jarak_normal" id="jarak_normal">
                   </td>
                 </tr>
                 <tr>
                   <td>Upload File</td>
                   <td>
-                      <input class="form-control" type="text" name="upload_file">
+                      <input class="form-control" type="text" name="upload_file" id="upload_file">
                   </td>
                 </tr>
                 <tr>
                   <td>PIC</td>
                   <td>
-                      <input class="form-control" type="text" name="pic">
+                      <input class="form-control" type="text" name="pic" id="pic">
+                      <input class="form-control" type="hidden" name="kondisi">
                   </td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>
-                    <button class="btn btn-primary px-4" type="submit" >Simpan</button>
+                    <button class="btn btn-primary px-4" type="submit" value="Daftar">Kirim ke Tekniksi Hub</button>
+                  <!--  <input type="submit" name="submit" value="Kirim"></td> -->
                   </td>
                 </tr>
 
@@ -188,6 +238,85 @@
             <!-- /.row-->
 <!-- akhir -->
 
+          <script>
+
+          function validasi(){
+          	var x = document.forms["input"]["node_id"].value;
+          	if (x == null || x == "") {
+          		alert("Node ID Tidak Boleh Kosong");
+          		return false;
+          	}
+          	var x = document.forms["input"]["node_des"].value;
+          	if (x == null || x == "") {
+          		alert("Node ID Tidak Boleh Kosong");
+          		return false;
+          	}
+          	var x = document.forms["input"]["regional"].value;
+          	if (x == null || x == "") {
+          		alert("Regional Tidak Boleh Kosong");
+          		return false;
+          	}
+          	var x = document.forms["input"]["hub_name"].value;
+          	if (x == null || x == "") {
+          		alert("Hub Name Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["rack"].value;
+          	if (x == null || x == "") {
+          		alert("Rack Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["jarak_normal"].value;
+          	if (x == null || x == "") {
+          		alert("Jarak Normal Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["upload_file"].value;
+          	if (x == null || x == "") {
+          		alert("Upload file Tidak Boleh Kosong");
+          		return false;
+          	}
+            var x = document.forms["input"]["pic"].value;
+            if (x == null || x == "") {
+              alert("PIC Tidak Boleh Kosong");
+              return false;
+            }
+          }
+          </script>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script type="text/javascript">
+              function isi_otomatis(){
+                  var node_id = $("#node_id").val();
+                  $.ajax({
+                      url: 'proses-ajax.php',
+                      data:"node_id="+node_id ,
+                  }).success(function (data) {
+                      var json = data,
+                      obj = JSON.parse(json);
+                      $('#node_des').val(obj.node_des);
+                      $('#regional').val(obj.regional);
+                      $('#hub_name').val(obj.hub_name);
+
+                  });
+              }
+          </script>
+
+          <!-- Memanggil Autocomplete.js -->
+
+          <script type="text/javascript">
+              $(document).ready(function() {
+
+                  // Selector input yang akan menampilkan autocomplete.
+                  $( "#node_id" ).autocomplete({
+                      serviceUrl: "auto-field/source.php",   // Kode php untuk prosesing data.
+                      dataType: "JSON",           // Tipe data JSON.
+                      onSelect: function (suggestion) {
+                          $( "#node_id" ).val("" + suggestion.node_id);
+                      }
+                  });
+              })
+          </script>
 
 
     <!-- CoreUI and necessary plugins-->
@@ -201,5 +330,7 @@
     <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="../node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="../js/main.js"></script>
+    <script src="auto-field/jquery.autocomplete.min.js"></script>
+
   </body>
 </html>

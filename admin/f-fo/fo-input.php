@@ -92,8 +92,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="../img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="../img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img src="../link-net.png" width="89" height="25">
       </a>
 
       <ul class="nav navbar-nav d-md-down-none">
@@ -118,6 +117,10 @@
             <li class="nav-item">
               <a class="nav-link" href="fo-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../f-lap/index.php">
+                <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
             </li>
           </ul>
         </nav>
@@ -157,14 +160,30 @@
 <!-- awal -->
   <div class="row">
     <div class="col-md-12">
+
       <div class="card">
         <div class="card-header">Mengisi Form Registrasi Jaringan Baru</div>
         <div class="card-body">
 
           <!--awal -->
-          <form action="fo-tambah.php" method="POST" name="input" onSubmit="return validasi()">
+          <form action="fo-tambah.php" method="POST" name="input" onSubmit="return validasi()" enctype="multipart/form-data">
           <div class="col-md-5">
             <table class="table table-borderless">
+                <tr>
+                  <td>
+                    <?php
+                    if(isset($_SESSION['error'])){
+                    	echo '<div style="color:#d00;">'.$_SESSION['error'].'</div>';
+                    	unset($_SESSION['error']);
+                    }
+                    if(isset($_SESSION['success'])){
+                    	echo '<div style="color:#080;">'.$_SESSION['success'].'</div>';
+                    	unset($_SESSION['success']);
+                    }
+
+                    ?>
+                  </td>
+                </tr>
                 <tr>
                   <td>Node ID</td>
                   <td>
@@ -204,7 +223,7 @@
                 <tr>
                   <td>Upload File</td>
                   <td>
-                      <input class="form-control" type="text" name="upload_file" id="upload_file">
+                    <input type="file" name="upload[]" accept="pdf/*" multiple="multiple">
                   </td>
                 </tr>
                 <tr>

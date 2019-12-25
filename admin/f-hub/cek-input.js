@@ -1,57 +1,72 @@
 function validasi(){
-  var x = document.forms["input"]["optical_light_tx"].value;
+  var x = document.forms["input"]["optical_input_node"].value;
   if (x == null || x == "") {
-    alert("Optical Light TX	Tidak Boleh Kosong");
+    alert("Optical Input Node	Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["optical_light_rx"].value;
+  var x = document.forms["input"]["optical_ac"].value;
   if (x == null || x == "") {
-    alert(" Optical Light RX Tidak Boleh Kosong");
+    alert("Optical AC Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["receiver_no"].value;
+  var x = document.forms["input"]["optical_dc"].value;
   if (x == null || x == "") {
-    alert("Receiver No Tidak Boleh Kosong");
+    alert("Optical DC Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["receiver_loss"].value;
+  var x = document.forms["input"]["signal_input_low"].value;
   if (x == null || x == "") {
-    alert("Receiver Loss Tidak Boleh Kosong");
+    alert("Signal Input Low Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["transmitter_no"].value;
+  var x = document.forms["input"]["signal_input_high"].value;
   if (x == null || x == "") {
-    alert("transmitter No Tidak Boleh Kosong");
+    alert("Signal Input High Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["transmitter_persen"].value;
+  var x = document.forms["input"]["signal_output_low"].value;
   if (x == null || x == "") {
-    alert("Transmitter % Tidak Boleh Kosong");
+    alert("Signal Output Low Normal Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["signal_trans_low"].value;
+  var x = document.forms["input"]["signal_output_high"].value;
   if (x == null || x == "") {
-    alert("Signal Transmitter Low Tidak Boleh Kosong");
+    alert("Signal Output High Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["signal_trans_dl"].value;
+  var x = document.forms["input"]["signal_output_rev"].value;
   if (x == null || x == "") {
-    alert("Signal Transmitter DL Tidak Boleh Kosong");
+    alert("Signal Output Rev Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["cmts_no"].value;
+  var x = document.forms["input"]["docsis_dp"].value;
   if (x == null || x == "") {
-    alert("CMTS No Tidak Boleh Kosong");
+    alert("Docsis DP Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["cmts_ds"].value;
+  var x = document.forms["input"]["docsis_up"].value;
   if (x == null || x == "") {
-    alert("CMTS DS Tidak Boleh Kosong");
+    alert("Docsis UP Tidak Boleh Kosong");
     return false;
   }
-  var x = document.forms["input"]["cmts_us"].value;
+  var x = document.forms["input"]["docsis_ds"].value;
   if (x == null || x == "") {
-    alert("CMTS US Tidak Boleh Kosong");
+    alert("Docsis DS Tidak Boleh Kosong");
+    return false;
+  }
+  var x = document.forms["input"]["quality_mer"].value;
+  if (x == null || x == "") {
+    alert("Quality Mer Tidak Boleh Kosong");
+    return false;
+  }
+  var x = document.forms["input"]["quality_ber"].value;
+  if (x == null || x == "") {
+    alert("quality_ber Tidak Boleh Kosong");
+    return false;
+  }
+  var x = document.forms["input"]["quality_cn"].value;
+  if (x == null || x == "") {
+    alert("Quality CN Tidak Boleh Kosong");
     return false;
   }
   var x = document.forms["input"]["pic"].value;

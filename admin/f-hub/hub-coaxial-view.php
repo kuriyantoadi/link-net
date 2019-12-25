@@ -42,8 +42,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-          <img class="navbar-brand-full" src="../img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-          <img class="navbar-brand-minimized" src="../img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+          <img src="../link-net.png" width="89" height="25">
         </a>
 
         <ul class="nav navbar-nav d-md-down-none">
@@ -79,6 +78,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="hub-form-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Hub</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../f-lap/index.php">
+                  <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
               </li>
             </ul>
           </nav>
@@ -123,38 +126,38 @@
       		?>
 
           <!--awal -->
-          <form action="hub-coaxial-update.php" method="post">
+          <form action="hub-coaxial-update.php" method="post" name="input" onSubmit="return validasi()">
           <div class="col-md-12">
             <table class="table table-borderless">
               <tr>
                 <td>Node ID</td>
                 <td colspan="2">
-                    <input class="form-control" type="text"  name="node_id" value="<?php echo $d['node_id']; ?>" readonly>
+                    <input class="form-control" type="text"  name="node_id" value="<?php echo $d['node_id']; ?>" id="node_id" readonly>
                 </td>
               </tr>
               <tr>
                 <td>Node Description</td>
                 <td colspan="2">
-                    <input class="form-control" type="text"  name="node_des" value="<?php echo $d['node_des']; ?>" readonly>
+                    <input class="form-control" type="text"  name="node_des" value="<?php echo $d['node_des']; ?>" id="node_des" readonly>
                 </td>
               </tr>
               <tr>
                 <td>Regional</td>
                 <td colspan="2">
-                    <input class="form-control" type="text"  name="Regional" value="<?php echo $d['regional']; ?>" readonly>
+                    <input class="form-control" type="text"  name="regional" value="<?php echo $d['regional']; ?>" id="regional" readonly>
                 </td>
               </tr>
 
               <tr>
                 <td>Hub Name </td>
                 <td colspan="2">
-                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['hub_name']; ?>" readonly>
+                    <input class="form-control" type="text" name="hub_name" value="<?php echo $d['hub_name']; ?>" id="hub_name" readonly>
                 </td>
               </tr>
               <tr>
-                <td>Optical Input @RX</td>
+                <td>Optical Input Node</td>
                 <td>
-                    <input class="form-control" type="text" name="optical_rx" value="<?php echo $d['optical_rx']; ?>" readonly>
+                    <input class="form-control" type="text" name="optical_input_node" value="<?php echo $d['optical_input_node']; ?>" id="optical_input_node"  readonly>
                 </td>
                 <td>AC</td>
                 <td>
@@ -253,7 +256,9 @@
 
 
 
+
     <!-- CoreUI and necessary plugins-->
+    <script src="cek-input-coaxial.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
