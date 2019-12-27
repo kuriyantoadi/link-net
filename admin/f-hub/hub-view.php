@@ -75,10 +75,7 @@
                   <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
               </li>
             -->
-            <li class="nav-item">
-              <a class="nav-link" href="../f-lap/index.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-            </li>
+            
               <li class="nav-item">
                 <a class="nav-link" href="hub-form-input.php">
                   <i class="nav-icon icon-pencil"></i> Data Hub</a>

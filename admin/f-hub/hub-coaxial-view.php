@@ -79,10 +79,7 @@
                 <a class="nav-link" href="hub-form-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Hub</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../f-lap/index.php">
-                  <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-              </li>
+              
             </ul>
           </nav>
         </div>
@@ -119,16 +116,17 @@
           <div class="card-header">Data Form Testing Teknisi Coaxial</div>
           <div class="card-body">
           <?php
-          	include '../koneksi.php';
-          	$node_id = $_GET['node_id'];
-          	$data = mysqli_query($koneksi,"select * from t_coaxial where node_id='$node_id'");
-          	while($d = mysqli_fetch_array($data)){
-      		?>
+              include '../koneksi.php';
+              $node_id = $_GET['node_id'];
+              $data = mysqli_query($koneksi, "select * from t_coaxial where node_id='$node_id'");
+              while ($d = mysqli_fetch_array($data)) {
+                  ?>
 
           <!--awal -->
           <form action="hub-coaxial-update.php" method="post" name="input" onSubmit="return validasi()">
           <div class="col-md-12">
             <table class="table table-borderless">
+              <a type="button" class="btn btn-primary btn-sm" href="lap-hub.php">Download</a>
               <tr>
                 <td>Node ID</td>
                 <td colspan="2">

@@ -79,10 +79,7 @@
               <a class="nav-link" href="hub-form-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Hub</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../f-lap/index.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-            </li>
+            
           </ul>
         </nav>
       </div>

@@ -63,10 +63,7 @@
               <a class="nav-link" href="pimpinan-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../f-lap/index.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-            </li>
+            
           </ul>
         </nav>
       </div>
@@ -104,6 +101,8 @@
                   <div class="card-header">Rekap Laporan</div>
                   <div class="card-body">
                   <table class="table table-hover">
+                    <a type="button" class="btn btn-primary btn-sm" href="lap-pimpinan.php">Download Excel</a>
+                    <br><br>
                     <tr>
                 			<th>No</th>
                 			<th>Node ID</th>
@@ -119,9 +118,9 @@
                     <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $data = mysqli_query($koneksi,"select * from pimpinan");
-                    while($d = mysqli_fetch_array($data)){
-                      ?>
+                    $data = mysqli_query($koneksi, "select * from pimpinan");
+                    while ($d = mysqli_fetch_array($data)) {
+                        ?>
                       <tr>
                         <td><?php echo $no++; ?></td>
                         <td><?php echo $d['node_id']; ?></td>

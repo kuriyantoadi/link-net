@@ -65,10 +65,7 @@
                 <a class="nav-link" href="fo-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Tampil Fiber Optik</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../f-lap/index.php">
-                  <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-              </li>
+              
             </ul>
           </nav>
         </div>

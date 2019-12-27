@@ -1,4 +1,4 @@
-function validasi(){
+function validasi() {
   var x = document.forms["input"]["optical_input_node"].value;
   if (x == null || x == "") {
     alert("Optical Input Node	Tidak Boleh Kosong");

@@ -78,10 +78,7 @@
               <a class="nav-link" href="hub-form-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Hub</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../f-lap/index.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-            </li>
+
           </ul>
         </nav>
       </div>
@@ -119,6 +116,8 @@
                   <div class="card-header">Menu Konfirmasi dari Teknisi Fiber Optik</div>
                   <div class="card-body">
                   <table class="table table-hover">
+                    <a type="button" class="btn btn-primary btn-sm" href="lap-fo.php">Download Excel</a>
+                    <br><br>
                     <tr>
                 			<th>No</th>
                 			<th>Node ID</th>

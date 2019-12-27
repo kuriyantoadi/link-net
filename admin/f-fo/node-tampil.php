@@ -68,10 +68,7 @@
               <a class="nav-link" href="fo-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../f-lap/index.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Laporan</a>
-            </li>
+
           </ul>
         </nav>
       </div>
@@ -112,7 +109,8 @@
           <!--awal -->
           <form action="cek_login.php" method="post">
           <div class="col-md-12">
-            <a type="button" class="btn btn-primary btn-sm" href="node-input.php">Input Node Baru</a>
+            <a type="button" class="btn btn-warning btn-sm" href="node-input.php">Input Node Baru</a>
+            <a type="button" class="btn btn-primary btn-sm" href="lap-node.php">Download Excel</a>
             <br><br>
             <table class="table table-hover">
               <tr>

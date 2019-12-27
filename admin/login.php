@@ -42,18 +42,18 @@
 
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-5">
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-                <center><h1>Panel Login</h1></center>
+                <center><img src="link-net-1.png"></center><br>
 
               <!-- jika gagal login -->
                 <?php
-                if(isset($_GET['pesan'])){
-                  if($_GET['pesan']=="gagal"){
-                    echo "<center><div class='text-value-sx text-danger'>Username dan Password tidak sesuai !</div>";
-                  }
+                if (isset($_GET['pesan'])) {
+                    if ($_GET['pesan']=="gagal") {
+                        echo "<center><div class='text-value-sx text-danger'>Username dan Password tidak sesuai !</div>";
+                    }
                 }
                 ?>
 
@@ -77,27 +77,19 @@
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button class="btn btn-primary px-4" type="summit" value="LOGIN">Login</button>
+                  <button class="btn btn-primary px-4" type="summit" value="LOGIN">Login</button>
                   </div>
                   <div class="col-6 text-right">
-                    <button class="btn btn-link px-0" type="button">Forgot password?</button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-              <div class="card-body text-center">
-                <div>
-                  <h2>Sign up</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <button class="btn btn-primary active mt-3" type="button">Register Now!</button>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
+    <?php  ?>
     <!-- CoreUI and necessary plugins-->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
