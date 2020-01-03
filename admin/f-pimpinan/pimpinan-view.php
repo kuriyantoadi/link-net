@@ -65,7 +65,7 @@
                 <a class="nav-link" href="pimpinan-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Pimpinan</a>
               </li>
-              
+
             </ul>
           </nav>
         </div>
@@ -99,7 +99,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header">Data Form Testing Teknisi Coaxial</div>
+          <div class="card-header">Rekap Laporan</div>
           <div class="card-body">
           <?php
           	include '../koneksi.php';

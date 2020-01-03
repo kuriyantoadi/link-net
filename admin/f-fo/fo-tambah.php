@@ -30,7 +30,7 @@ if(isset($_FILES['upload'])){
 
 		if($error > 0){
 			$_SESSION['error'] = 'Upload gagal';
-			echo "error2";
+			echo "Maaf File yg anda upload gagal";
 
 			//("fo-input.php");
 			exit();
@@ -41,7 +41,7 @@ if(isset($_FILES['upload'])){
 		move_uploaded_file($tmp, 'upload/'.$namafile);
 	}else{
 		$_SESSION['error'] = 'Maaf file upload harus PDF';
-		echo "error3";
+		echo "Maaf file upload harus PDF";
 
 		//header("fo-input.php");
 		exit();
