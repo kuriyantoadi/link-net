@@ -281,6 +281,11 @@
               alert("PIC Tidak Boleh Kosong");
               return false;
             }
+            var x = document.forms["input"]["upload"].value;
+            if (x == null || x == "") {
+              alert("PIC Tidak Boleh Kosong");
+              return false;
+            }
           }
           </script>
 

@@ -118,7 +118,6 @@
               <a class="nav-link" href="fo-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
             </li>
-            
           </ul>
         </nav>
       </div>

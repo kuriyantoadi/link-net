@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $limit = 3 * 1024 * 1024; //10MB. Bisa diubah2
 
@@ -42,9 +43,10 @@ if(isset($_FILES['upload'])){
 	}else{
 		$_SESSION['error'] = 'Maaf file upload harus PDF';
 		echo "Maaf file upload harus PDF";
-
+		//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=fo-input.php">';
+		exit;
 		//header("fo-input.php");
-		exit();
+		//exit();
 	}
 
 	}
