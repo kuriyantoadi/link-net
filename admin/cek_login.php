@@ -21,51 +21,43 @@ if($cek > 0){
 	$data = mysqli_fetch_assoc($login);
 
 	// cek jika user login sebagai admin
-	if($data['level']=="admin"){
+	if($data['level']=="ad"){
 
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "admin";
+		$_SESSION['level'] = "ad";
 		// alihkan ke halaman dashboard admin
 		header("location:f-admin/index.php");
 
 	// cek jika user login sebagai Teknisi Fiber Optik
-	}else if($data['level']=="tek-fo"){
+	}else if($data['level']=="fo"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "tek-fo";
+		$_SESSION['level'] = "fo";
 		// alihkan ke halaman dashboard pegawai
 		header("location:f-fo/index.php");
 
 	// cek jika user login sebagai Teknisi Coaxial
-}else if($data['level']=="tek-coaxial"){
+}else if($data['level']=="co"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "tek-fo";
-		// alihkan ke halaman dashboard pegawai
+		$_SESSION['level'] = "co";
+		// alihkan ke halaman dashboard Teknisi Coaxial
 		header("location:f-coaxial/index.php");
 
-}else if($data['level']=="tek-hub"){
+}else if($data['level']=="hu"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "tek-hub";
-		// alihkan ke halaman dashboard pegawai
+		$_SESSION['level'] = "hu";
+		// alihkan ke halaman dashboard teknisi Hub
 		header("location:f-hub/index.php");
 
-	}else if($data['level']=="pimpinan"){
+	}else if($data['level']=="pi"){
 			// buat session login dan username
 			$_SESSION['username'] = $username;
-			$_SESSION['level'] = "pimpinan";
-			// alihkan ke halaman dashboard pegawai
+			$_SESSION['level'] = "pi";
+			// alihkan ke halaman dashboard pimpinan
 			header("location:f-pimpinan/index.php");
-
-	// cek jika user login sebagai pengurus
-	}else if($data['level']=="pengurus"){
-		// buat session login dan username
-		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "pengurus";
-		// alihkan ke halaman dashboard pengurus
-		header("location:halaman_pengurus.php");
 
 	}else{
 

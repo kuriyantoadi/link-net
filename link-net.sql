@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 25, 2019 at 10:41 
+-- Generation Time: Jan 04, 2020 at 05:49 
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `node` (
-  `regional` varchar(50) NOT NULL,
-  `hub_name` varchar(255) NOT NULL,
-  `node_id` varchar(50) NOT NULL,
-  `node_des` varchar(255) NOT NULL,
-  `titik_ko` varchar(255) NOT NULL
+  `regional` varchar(20) NOT NULL,
+  `hub_name` varchar(20) NOT NULL,
+  `node_id` varchar(10) NOT NULL,
+  `node_des` varchar(20) NOT NULL,
+  `titik_ko` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -49,13 +49,13 @@ INSERT INTO `node` (`regional`, `hub_name`, `node_id`, `node_des`, `titik_ko`) V
 --
 
 CREATE TABLE IF NOT EXISTS `pimpinan` (
-  `node_id` varchar(255) NOT NULL,
-  `node_des` varchar(255) NOT NULL,
-  `hub_name` varchar(255) NOT NULL,
-  `optical_light_rx` varchar(255) NOT NULL,
-  `optical_input_node` varchar(255) NOT NULL,
+  `node_id` varchar(10) NOT NULL,
+  `node_des` varchar(20) NOT NULL,
+  `hub_name` varchar(20) NOT NULL,
+  `optical_light_rx` varchar(10) NOT NULL,
+  `optical_input_node` varchar(10) NOT NULL,
   `tgl_lap` varchar(20) NOT NULL,
-  `jam_lap` varchar(20) NOT NULL,
+  `jam_lap` varchar(10) NOT NULL,
   `kondisi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `pimpinan` (
 --
 
 INSERT INTO `pimpinan` (`node_id`, `node_des`, `hub_name`, `optical_light_rx`, `optical_input_node`, `tgl_lap`, `jam_lap`, `kondisi`) VALUES
-('001', '001', '001', '1', '1', '25-12-2019', '02:38:22', 'Approve'),
+('001', '001', '001', '1', '1', '03-01-2020', '08:46:37', 'Approve'),
 ('002', '002', '002', '1', '002', '25-12-2019', '02:45:03', 'Approve');
 
 -- --------------------------------------------------------
@@ -74,26 +74,26 @@ INSERT INTO `pimpinan` (`node_id`, `node_des`, `hub_name`, `optical_light_rx`, `
 --
 
 CREATE TABLE IF NOT EXISTS `t_coaxial` (
-  `node_id` varchar(255) NOT NULL,
-  `node_des` varchar(255) NOT NULL,
-  `regional` varchar(255) NOT NULL,
-  `hub_name` varchar(255) NOT NULL,
-  `optical_input_node` varchar(255) NOT NULL,
-  `optical_ac` varchar(255) NOT NULL,
-  `optical_dc` varchar(255) NOT NULL,
-  `signal_input_low` varchar(255) NOT NULL,
-  `signal_input_high` varchar(255) NOT NULL,
-  `signal_output_low` varchar(255) NOT NULL,
-  `signal_output_high` varchar(255) NOT NULL,
-  `signal_output_rev` varchar(255) NOT NULL,
-  `docsis_dp` varchar(255) NOT NULL,
-  `docsis_up` varchar(255) NOT NULL,
-  `docsis_ds` varchar(255) NOT NULL,
-  `quality_ber` varchar(255) NOT NULL,
-  `quality_mer` varchar(255) NOT NULL,
-  `quality_cn` varchar(255) NOT NULL,
-  `pic` varchar(255) NOT NULL,
-  `kondisi` varchar(255) NOT NULL
+  `node_id` varchar(10) NOT NULL,
+  `node_des` varchar(20) NOT NULL,
+  `regional` varchar(20) NOT NULL,
+  `hub_name` varchar(20) NOT NULL,
+  `optical_input_node` varchar(10) NOT NULL,
+  `optical_ac` varchar(10) NOT NULL,
+  `optical_dc` varchar(10) NOT NULL,
+  `signal_input_low` varchar(10) NOT NULL,
+  `signal_input_high` varchar(10) NOT NULL,
+  `signal_output_low` varchar(10) NOT NULL,
+  `signal_output_high` varchar(10) NOT NULL,
+  `signal_output_rev` varchar(10) NOT NULL,
+  `docsis_dp` varchar(10) NOT NULL,
+  `docsis_up` varchar(10) NOT NULL,
+  `docsis_ds` varchar(10) NOT NULL,
+  `quality_ber` varchar(10) NOT NULL,
+  `quality_mer` varchar(10) NOT NULL,
+  `quality_cn` varchar(10) NOT NULL,
+  `pic` varchar(10) NOT NULL,
+  `kondisi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -112,14 +112,14 @@ INSERT INTO `t_coaxial` (`node_id`, `node_des`, `regional`, `hub_name`, `optical
 
 CREATE TABLE IF NOT EXISTS `t_fo` (
   `tgl` varchar(15) NOT NULL,
-  `node_id` varchar(255) NOT NULL,
-  `node_des` varchar(255) NOT NULL,
-  `regional` varchar(255) NOT NULL,
-  `hub_name` varchar(255) NOT NULL,
-  `rack` varchar(255) NOT NULL,
-  `jarak_normal` varchar(255) NOT NULL,
-  `pic` varchar(255) NOT NULL,
-  `kondisi` varchar(255) NOT NULL
+  `node_id` varchar(10) NOT NULL,
+  `node_des` varchar(20) NOT NULL,
+  `regional` varchar(20) NOT NULL,
+  `hub_name` varchar(20) NOT NULL,
+  `rack` varchar(20) NOT NULL,
+  `jarak_normal` varchar(10) NOT NULL,
+  `pic` varchar(10) NOT NULL,
+  `kondisi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -137,23 +137,23 @@ INSERT INTO `t_fo` (`tgl`, `node_id`, `node_des`, `regional`, `hub_name`, `rack`
 --
 
 CREATE TABLE IF NOT EXISTS `t_hub` (
-  `node_id` varchar(255) NOT NULL,
-  `node_des` varchar(255) NOT NULL,
-  `regional` varchar(255) NOT NULL,
-  `hub_name` varchar(255) NOT NULL,
-  `optical_light_tx` varchar(255) NOT NULL,
-  `optical_light_rx` varchar(255) NOT NULL,
-  `receiver_no` varchar(255) NOT NULL,
-  `receiver_loss` varchar(255) NOT NULL,
-  `transmitter_no` varchar(255) NOT NULL,
-  `transmitter_persen` varchar(255) NOT NULL,
-  `signal_trans_low` varchar(255) NOT NULL,
-  `signal_trans_high` varchar(255) NOT NULL,
-  `signal_trans_dl` varchar(255) NOT NULL,
-  `cmts_no` varchar(255) NOT NULL,
-  `cmts_ds` varchar(255) NOT NULL,
-  `cmts_us` varchar(255) NOT NULL,
-  `pic` varchar(255) NOT NULL,
+  `node_id` varchar(10) NOT NULL,
+  `node_des` varchar(20) NOT NULL,
+  `regional` varchar(20) NOT NULL,
+  `hub_name` varchar(20) NOT NULL,
+  `optical_light_tx` varchar(10) NOT NULL,
+  `optical_light_rx` varchar(10) NOT NULL,
+  `receiver_no` varchar(10) NOT NULL,
+  `receiver_loss` varchar(10) NOT NULL,
+  `transmitter_no` varchar(10) NOT NULL,
+  `transmitter_persen` varchar(10) NOT NULL,
+  `signal_trans_low` varchar(10) NOT NULL,
+  `signal_trans_high` varchar(10) NOT NULL,
+  `signal_trans_dl` varchar(10) NOT NULL,
+  `cmts_no` varchar(10) NOT NULL,
+  `cmts_ds` varchar(10) NOT NULL,
+  `cmts_us` varchar(10) NOT NULL,
+  `pic` varchar(10) NOT NULL,
   `kondisi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -173,9 +173,9 @@ INSERT INTO `t_hub` (`node_id`, `node_des`, `regional`, `hub_name`, `optical_lig
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `level` varchar(20) NOT NULL
+  `username` varchar(35) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  `level` varchar(2) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
@@ -183,11 +183,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
-(5, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(13, 'fo', 'eed807024939b808083f0031a56e9872', 'tek-fo'),
-(14, 'hub', '5261539cab7de0487b6b41415acc7f61', 'tek-hub'),
-(15, 'coaxial', '226dce80b88cf7b4bd4138c4a10c3ee7', 'tek-coaxial'),
-(16, 'bos', '15fc4a53992beba40ae91e5244e79dff', 'pimpinan');
+(5, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ad'),
+(13, 'fo', 'eed807024939b808083f0031a56e9872', 'fo'),
+(14, 'hub', '5261539cab7de0487b6b41415acc7f61', 'hu'),
+(15, 'coaxial', '226dce80b88cf7b4bd4138c4a10c3ee7', 'co'),
+(16, 'bos', '15fc4a53992beba40ae91e5244e79dff', 'pi');
 
 --
 -- Indexes for dumped tables
