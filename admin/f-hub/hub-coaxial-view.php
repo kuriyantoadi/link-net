@@ -79,7 +79,7 @@
                 <a class="nav-link" href="hub-form-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Hub</a>
               </li>
-              
+
             </ul>
           </nav>
         </div>
