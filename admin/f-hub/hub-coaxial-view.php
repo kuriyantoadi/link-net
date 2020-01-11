@@ -9,9 +9,9 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>Link Net</title>
     <!-- Icons-->
-    <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any" />
+
     <link href="../node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="../node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -79,6 +79,10 @@
                 <a class="nav-link" href="hub-form-tampil.php">
                   <i class="nav-icon icon-pencil"></i> Data Hub</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="hub-pdf.php">
+                  <i class="nav-icon icon-pencil"></i> File PDF</a>
+              </li>
 
             </ul>
           </nav>
@@ -126,7 +130,6 @@
           <form action="hub-coaxial-update.php" method="post" name="input" onSubmit="return validasi()">
           <div class="col-md-12">
             <table class="table table-borderless">
-              <a type="button" class="btn btn-primary btn-sm" href="lap-hub.php">Download</a>
               <tr>
                 <td>Node ID</td>
                 <td colspan="2">

@@ -9,9 +9,9 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>Link Net</title>
     <!-- Icons-->
-    <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any" />
+
     <link href="../node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="../node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -67,6 +67,10 @@
             <li class="nav-item">
               <a class="nav-link" href="fo-tampil.php">
                 <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="fo-pdf.php">
+                <i class="nav-icon icon-pencil"></i> File PDF</a>
             </li>
 
           </ul>

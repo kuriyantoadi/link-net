@@ -46,7 +46,7 @@
 
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-          <a class="nav-link">Selamat Datang Teknisi Coaxial</a>
+          <a class="nav-link">Selamat Datang Teknisi Fiber Optik</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="../logout.php">Keluar</a>
@@ -61,13 +61,18 @@
             <li class="nav-title">Menu</li>
 
             <li class="nav-item">
-              <a class="nav-link" href="coa-tampil.php">
-                <i class="nav-icon icon-pencil"></i> Tampil Coaxial</a>
+              <a class="nav-link" href="node-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Node ID</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="coa-pdf.php">
-                <i class="nav-icon icon-pencil"></i> File PDF</a>
+              <a class="nav-link" href="fo-tampil.php">
+                <i class="nav-icon icon-pencil"></i> Data Fiber Optik</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="fo-pdf.php">
+                <i class="nav-icon icon-pencil"></i> File PDF</a>
+            </li> 
+
           </ul>
         </nav>
       </div>
@@ -102,46 +107,41 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">Mengisi Form Testing</div>
+                  <div class="card-header">File PDF Teknik Fiber Optik</div>
                   <div class="card-body">
 
           <!--awal -->
           <form action="cek_login.php" method="post">
           <div class="col-md-12">
+
             <table class="table table-hover">
               <tr>
-                <a type="button" class="btn btn-primary btn-sm" href="lap-coaxial.php">Download Excel</a>
-                <br><br>
           			<th>No</th>
-                <th>Node ID</th>
-          			<th>Node Deskription</th>
-          			<th>Regional</th>
-          			<th>Hub Name</th>
-                <th>Kondisi</th>
-                <th>Kerjakan</th>
-
+                <td>Nama File</td>
           		</tr>
               <?php
-              include '../koneksi.php';
-              $no = 1;
-              $data = mysqli_query($koneksi,"select * from t_coaxial");
-              while($d = mysqli_fetch_array($data)){
-                ?>
-                <tr>
-                  <td><?php echo $no++; ?></td>
-                  <td><?php echo $d['node_id']; ?></td>
-                  <td><?php echo $d['node_des']; ?></td>
-                  <td><?php echo $d['regional']; ?></td>
-                  <td><?php echo $d['hub_name']; ?></td>
-                  <td><?php echo $d['kondisi']; ?></td>
-                  <td>
-                    <a type="button" class="btn btn-success btn-sm" href="coa-view.php?node_id=<?php echo $d['node_id']; ?>">Lihat Data</a>
-                  </td>
+              //Membuka direktori gambar
+              $dir = opendir("upload");
+              $no = '1';
 
-                </tr>
-                <?php
-              }
+              //Daftar file dalam direktori
+              while (($file = readdir($dir)) !== false)
+                {
+                //echo $no++;
+                //echo "<a href='upload/$file'>$file</a>";
+                //echo "<br>";
               ?>
+
+              <tr>
+                <td><?php echo $no++; ?></td>
+                <td><?php echo "<a href='upload/$file'>$file</a>"; ?></td>
+                <?php   }
+
+                closedir($dir);
+                ?>
+
+              </tr>
+
 
               </table>
             </div>

@@ -48,9 +48,10 @@ if(isset($_FILES['upload'])){
 	}
 
 	}
-	//echo "upload berhasil";
+	echo $namafile;
+	echo "upload berhasil";
 
-	exit();
+	//exit();
 
 }
 

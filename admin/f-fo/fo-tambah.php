@@ -52,6 +52,10 @@ if(isset($_FILES['upload'])){
 	}
 	//echo "upload berhasil";
   //akhir syntax file upload file
+	echo $namafile;
+	echo $namafile;
+
+
 
       include '../koneksi.php';
 
@@ -77,8 +81,12 @@ if(isset($_FILES['upload'])){
                     '$kondisi')");
 
 
+
+
+
 header("location:fo-tampil.php");
 }
+
 
 //kemungkinan nyampe kesini cuma kalau user ga upload apa2
 ?>
