@@ -1,4 +1,6 @@
 <?php
+
+$node_id = $_POST['node_id'];
 session_start();
 
 $limit = 3 * 1024 * 1024; //10MB. Bisa diubah2
@@ -24,7 +26,7 @@ if(isset($_FILES['upload'])){
 		//lakukan pengecekan disini
 		if($size > $limit){
 			$_SESSION['error'] = 'Ukuran file teralu besar, Maximal file 3 MB';
-			echo "error1";
+			echo "Ukuran file teralu besar, Maximal file 3 MB";
 			//header("fo-input.php");
 			exit();
 		}
@@ -39,7 +41,7 @@ if(isset($_FILES['upload'])){
 
 
 		//kalau pengecekan sudah selesai, langsung proses
-		move_uploaded_file($tmp, 'upload/'.$namafile);
+		move_uploaded_file($tmp, 'upload/'.$node_id.'-'.$namafile);
 	}else{
 		$_SESSION['error'] = 'Maaf file upload harus PDF';
 		echo "Maaf file upload harus PDF";
