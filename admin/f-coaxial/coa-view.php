@@ -212,17 +212,39 @@
                   <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" id="pic">
                 </td>
               </tr>
+
+              <tr>
+                <td>File PDF</td>
+                <td colspan="2">
+
+                  <?php
+                    $dir = "../f-fo/upload/*";
+                    $no = 1;
+
+                      // Open a known directory, and proceed to read its contents
+                      foreach(glob($dir.$node_id.'*') as $file)
+                      {
+                        echo $no++;
+                        echo ".file pdf";
+                        echo "";
+                        echo "<a href='$file'>$file</a>";
+                        echo "<br>";
+                      }
+                  ?>
+                </td>
+              </tr>
+
+
+                <?php
+              }
+              ?>
+
               <tr>
                 <td></td>
                 <td>
                   <button class="btn btn-primary px-4" type="submit" >Kirim ke Teknisi Hub</button>
                 </td>
               </tr>
-                <?php
-              }
-              ?>
-
-
                         </table>
                       </div>
                     </div>

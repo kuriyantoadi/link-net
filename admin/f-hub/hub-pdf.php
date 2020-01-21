@@ -146,7 +146,7 @@
 
               <tr>
                 <td><?php echo $no++; ?></td>
-                <td><?php echo "<a href='upload/$file'>$file</a>"; ?></td>
+                <td><?php echo "<a href='../f-fo/upload/$file'>$file</a>"; ?></td>
                 <?php   }
 
                 closedir($dir);

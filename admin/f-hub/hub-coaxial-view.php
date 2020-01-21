@@ -226,6 +226,28 @@
                   <input class="form-control" type="text" name="pic" value="<?php echo $d['pic']; ?>" readonly>
                 </td>
               </tr>
+
+
+              <tr>
+                <td>File PDF</td>
+                <td colspan="2">
+
+                  <?php
+                    $dir = "../f-fo/upload/*";
+                    $no = 1;
+
+                      // Open a known directory, and proceed to read its contents
+                      foreach(glob($dir.$node_id.'*') as $file)
+                      {
+                        echo $no++;
+                        echo ".file pdf";
+                        echo "";
+                        echo "<a href='$file'>$file</a>";
+                        echo "<br>";
+                      }
+                  ?>
+                </td>
+              </tr>
               <tr>
                 <td></td>
                 <td>
