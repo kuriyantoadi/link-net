@@ -71,7 +71,7 @@
             <li class="nav-item">
               <a class="nav-link" href="fo-pdf.php">
                 <i class="nav-icon icon-pencil"></i> File PDF</a>
-            </li> 
+            </li>
 
           </ul>
         </nav>
@@ -121,23 +121,29 @@
           		</tr>
               <?php
               //Membuka direktori gambar
-              $dir = opendir("upload");
+    //          $dir = opendir("upload");
               $no = '1';
 
               //Daftar file dalam direktori
-              while (($file = readdir($dir)) !== false)
-                {
+//              while (glob(($file = readdir($dir)) !== false))
+  //              {
                 //echo $no++;
                 //echo "<a href='upload/$file'>$file</a>";
                 //echo "<br>";
-              ?>
+
+                foreach (glob("upload/*.pdf") as $filename) {
+                  //  $filename = basename($filename);
+                    //echo $filename;
+                    // do something with $filename
+
+            ?>
 
               <tr>
                 <td><?php echo $no++; ?></td>
-                <td><?php echo "<a href='upload/$file'>$file</a>"; ?></td>
+                <td><?php echo "<a href='$filename'>$filename</a>"; ?></td>
                 <?php   }
 
-                closedir($dir);
+
                 ?>
 
               </tr>
