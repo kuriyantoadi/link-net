@@ -56,7 +56,7 @@
                     }else if($_GET['pesan'] == "logout"){
                 			echo "<center><div class='text-value-sx text-danger'>Anda telah berhasil logout</div>";
                 		}else if($_GET['pesan'] == "belum_login"){
-                			echo "<center><div class='text-value-sx text-danger'>Anda harus login untuk mengakses halaman admin</div>";
+                			echo "<center><div class='text-value-sx text-danger'>Anda harus login untuk mengakses halaman use</div>";
                 		}
                 }
                 ?>
