@@ -116,26 +116,31 @@
                 <td>Nama File</td>
           		</tr>
               <?php
-              //Membuka direktori gambar
-              $dir = opendir("../f-fo/upload");
-              $no = '1';
+               //Membuka direktori gambar
+     //          $dir = opendir("upload");
+               $no = '1';
 
-              //Daftar file dalam direktori
-              while (($file = readdir($dir)) !== false)
-                {
-                //echo $no++;
-                //echo "<a href='upload/$file'>$file</a>";
-                //echo "<br>";
-              ?>
+               //Daftar file dalam direktori
+ //              while (glob(($file = readdir($dir)) !== false))
+   //              {
+                 //echo $no++;
+                 //echo "<a href='upload/$file'>$file</a>";
+                 //echo "<br>";
 
-              <tr>
-                <td><?php echo $no++; ?></td>
-                <td><?php echo "<a href='../f-fo/upload/$file'>$file</a>"; ?></td>
-                <?php   }
+                 foreach (glob("../f-fo/upload/*.pdf") as $filename) {
+                   //  $filename = basename($filename);
+                     //echo $filename;
+                     // do something with $filename
 
-                closedir($dir);
-                ?>
+             ?>
 
+               <tr>
+                 <td><?php echo $no++; ?></td>
+                 <td><?php echo "<a href='$filename'>$filename</a>"; ?></td>
+                 <?php   }
+
+
+                 ?>
               </tr>
 
 

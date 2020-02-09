@@ -305,6 +305,28 @@
                 </td>
               </tr>
                 <td></td>
+
+                <tr>
+                  <td>File PDF</td>
+                  <td colspan="3">
+
+                    <?php
+                      $dir = "../f-fo/upload/*";
+                      $no = 1;
+
+                        // Open a known directory, and proceed to read its contents
+                        foreach(glob($dir.$node_id."*") as $file)
+                        {
+                          echo $no++;
+                          echo ".file pdf";
+                          echo "";
+                          echo "<a href='$file'>$file</a>";
+                          echo "<br>";
+                        }
+                    ?>
+                  </td>
+                </tr>
+
                 <td>
                   <button class="btn btn-primary px-4" type="submit" >Approve</button>
                   <a type="button" class="btn btn-danger btn-px" href="pimpinan-reject.php?node_id=<?php echo $d['node_id']; ?>" >Reject</a>
