@@ -25,7 +25,7 @@ if($cek > 0){
 
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "ad";
+		$_SESSION['status'] = "login";
 		// alihkan ke halaman dashboard admin
 		header("location:f-admin/index.php");
 
@@ -33,7 +33,7 @@ if($cek > 0){
 	}else if($data['level']=="fo"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "fo";
+		$_SESSION['status'] = "login";
 		// alihkan ke halaman dashboard pegawai
 		header("location:f-fo/index.php");
 
@@ -41,21 +41,21 @@ if($cek > 0){
 }else if($data['level']=="co"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "co";
+		$_SESSION['status'] = "login";
 		// alihkan ke halaman dashboard Teknisi Coaxial
 		header("location:f-coaxial/index.php");
 
 }else if($data['level']=="hu"){
 		// buat session login dan username
 		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "hu";
+		$_SESSION['status'] = "login";
 		// alihkan ke halaman dashboard teknisi Hub
 		header("location:f-hub/index.php");
 
 	}else if($data['level']=="pi"){
 			// buat session login dan username
 			$_SESSION['username'] = $username;
-			$_SESSION['level'] = "pi";
+			$_SESSION['status'] = "login";
 			// alihkan ke halaman dashboard pimpinan
 			header("location:f-pimpinan/index.php");
 

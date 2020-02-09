@@ -49,7 +49,7 @@
           <a class="nav-link">Selamat Datang Teknisi Hub</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="../logout.php">Keluar</a>
+          <a class="nav-link" href="../logout.php" onclick="return confirm('Anda yakin anda keluar ?')">Keluar</a>
         </li>
       </ul>
 

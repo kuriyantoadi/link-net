@@ -1,9 +1,9 @@
 <?php
 // mengaktifkan session php
-session_start();
+//session_start();
 
 // menghapus semua session
-session_destroy();
+//session_destroy();
 
 // mengalihkan halaman ke halaman login
 header("location:admin/login.php");

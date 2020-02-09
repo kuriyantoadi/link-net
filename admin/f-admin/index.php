@@ -34,6 +34,13 @@
     </script>
   </head>
 
+  <?php
+	session_start();
+	if($_SESSION['status']!="login"){
+		header("location:../login.php?pesan=belum_login");
+	}
+	?>
+
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -48,7 +55,7 @@
           <a class="nav-link">Selamat Datang Admin</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="../logout.php">Keluar</a>
+          <a class="nav-link" href="../logout.php" onclick="return confirm('Anda yakin anda keluar ?')">Keluar</a>
         </li>
       </ul>
 

@@ -35,6 +35,13 @@
     </script>
   </head>
 
+  <?php
+	session_start();
+	if($_SESSION['status']!="login"){
+		header("location:../login.php?pesan=belum_login");
+	}
+	?>
+
 <!-- menu awal -->
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
@@ -50,7 +57,7 @@
           <a class="nav-link">Selamat Datang Teknisi Teknisi Hub</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="../logout.php">Keluar</a>
+          <a class="nav-link" href="../logout.php" onclick="return confirm('Anda yakin anda keluar ?')">Keluar</a>
         </li>
       </ul>
 

@@ -53,7 +53,11 @@
                 if (isset($_GET['pesan'])) {
                     if ($_GET['pesan']=="gagal") {
                         echo "<center><div class='text-value-sx text-danger'>Username dan Password tidak sesuai !</div>";
-                    }
+                    }else if($_GET['pesan'] == "logout"){
+                			echo "<center><div class='text-value-sx text-danger'>Anda telah berhasil logout</div>";
+                		}else if($_GET['pesan'] == "belum_login"){
+                			echo "<center><div class='text-value-sx text-danger'>Anda harus login untuk mengakses halaman admin</div>";
+                		}
                 }
                 ?>
 
